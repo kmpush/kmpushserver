@@ -229,7 +229,7 @@ function hotnum() {
     };
     $.ajax({
         type: "post",
-        url: "Home/GetInfo/getHotPoin",
+        url: "/pushServer/Home/GetInfo/getHotPoin",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -344,7 +344,7 @@ function hotnum() {
                 $("#infotable tr:not(:first)").remove();
                 $.ajax({
                     type: "post",
-                    url: "Home/ClickInfo/clickhot",
+                    url: "/pushServer/Home/ClickInfo/clickhot",
                     async: true, //异步执行
                     data: {time: a1, city: params.name},
                     success: function (msg) {
@@ -386,7 +386,7 @@ function tableInfo() {
     $("#infotable tr:not(:first)").remove();
     $.ajax({
         type: "post",
-        url: "Home/GetInfo/getTableInfo",
+        url: "/pushServer/Home/GetInfo/getTableInfo",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -416,7 +416,7 @@ function pushnum() {
     var arr2 = [];
     $.ajax({
         type: "post",
-        url: "Home/GetInfo/getPushNum",
+        url: "/pushServer/Home/GetInfo/getPushNum",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -473,7 +473,7 @@ function pushtime() {
     var a1 = document.getElementById('from').value;
     $.ajax({
         type: "post",
-        url: "Home/GetInfo/getPushTime",
+        url: "/pushServer/Home/GetInfo/getPushTime",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -549,7 +549,7 @@ function pushmo() {
 
     $.ajax({
         type: "post",
-        url: "Home/GetInfo/getPushMo",
+        url: "/pushServer/Home/GetInfo/getPushMo",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {

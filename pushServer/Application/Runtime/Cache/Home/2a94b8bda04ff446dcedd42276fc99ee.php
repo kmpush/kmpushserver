@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <title>K米平台服务质量监测系统</title>
 
-    <link rel="stylesheet" href="Public/css/divider.css">
-    <link rel="stylesheet" href="Public/css/styles.css">
-    <link rel="stylesheet" href="Public/css/table.css">
-    <link rel="stylesheet" href="Public/css/menu.css">
-    <link rel="stylesheet" href="Public/css/button.css">
-    <link rel="stylesheet" href="Public/css/jPages.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/divider.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/styles.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/table.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/menu.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/button.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/jPages.css">
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
 
-    <script src="Public/js/jquery.min.js"></script>
+    <script src="/pushServer/Public/js/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="Public/js/echarts.js"></script>
-    <script src="Public/js/china.js"></script>
-    <script src="Public/js/function.js" type="text/javascript"></script>
-    <script src="Public/js/jPages.js"></script>
+    <script src="/pushServer/Public/js/echarts.js"></script>
+    <script src="/pushServer/Public/js/china.js"></script>
+    <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
+    <script src="/pushServer/Public/js/jPages.js"></script>
 
 </head>
 <body>
@@ -33,7 +33,7 @@
     <div class="ui Inverted divider"></div>
     <!--推送折线图-->
     <div id="first" style="left:10%;width: 80%;height:400px;"></div>
-    <script src="Public/js/first.js"></script>
+    <script src="/pushServer/Public/js/first.js"></script>
 </div>
 <div id="a2">
     <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">平均推送时延热点图</span>
@@ -41,7 +41,7 @@
     <div class="ui Inverted divider"></div>
     <!--推送热点图-->
     <div id="second" style="left:10%;width: 80%;height:400px;margin-top: 20px"></div>
-    <script src="Public/js/second.js"></script>
+    <script src="/pushServer/Public/js/second.js"></script>
 </div>
 <div id="a3text">
     <span style="float: left;border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送时延分布</span>
@@ -53,12 +53,12 @@
 <!--两个饼图-->
 <div id="a3">
     <div id="third" style="float:left;padding-left: 5%;padding-top:2%;width: 40%;height:380px;"></div>
-    <script src="Public/js/third.js"></script>
+    <script src="/pushServer/Public/js/third.js"></script>
     <br>
 
     <div class="ui vertical divider"></div>
     <div id="forth" style="margin-left:55%;width: 40%;height:380px;"></div>
-    <script src="Public/js/forth.js"></script>
+    <script src="/pushServer/Public/js/forth.js"></script>
 </div>
 <!--详情表-->
 <div id="a4">

@@ -1,11 +1,11 @@
 <?php
 return array(
-	//'配置项'=>'配置值'
+    //'配置项'=>'配置值'
     'db_type' => 'mysql',
-    'db_user' => 'root',
-    'db_pwd' => 'root',
-    'db_host' => 'localhost',
+    'db_user' => 'ktvme',
+    'db_pwd' => 'ktvme123!@#',
+    'db_host' => '192.168.84.73',
     'db_port' => '3306',
-    'db_name' => 'pushserver',
+    'db_name' => 'kmpushserver',
     'DB_PREFIX' => 'km_', // 数据库表前缀
 );
