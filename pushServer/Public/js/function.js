@@ -412,32 +412,44 @@ function tableInfo() {
 function pushnum() {
     var myChart = echarts.init(document.getElementById('first'));
     var a1 = document.getElementById('from').value;
-    var arr1 = [];
-    var arr2 = [];
+    var dateArr = [];
+    var total = [];
+    var java = [];
+    var kmgate = [];
+    var kmbackground = [];
+    var kmhttpapi = [];
+    var kmcompany = [];
+    var Mozilla = [];
     $.ajax({
         type: "post",
-        url: "/pushServer/Home/GetInfo/getPushNum",
+        url: "/pushServer/Home/GetInfo/getALLPushNum",
         async: true, //异步执行
         data: {text: a1},
-        success: function (msg) {
-            var str = JSON.parse(msg);
-            for (i = 0; i < str.length; i++) {
-                arr1.push(str[i].date);
-                arr2.push(str[i].pushnum);
+        success: function (data) {
+            var data = JSON.parse(data);
+            for (i = 0; i < data.total.length; i++) {
+                dateArr.push(data.total[i].date);
+                total.push(data.total[i].pushnum);
+                java.push(getNumByDate(data.java, dateArr[i]));
+                kmbackground.push(getNumByDate(data.kmbackground, dateArr[i]));
+                kmgate.push(getNumByDate(data.kmgate, dateArr[i]));
+                kmcompany.push(getNumByDate(data.kmcompany, dateArr[i]));
+                kmhttpapi.push(getNumByDate(data.kmhttpapi, dateArr[i]));
+                Mozilla.push(getNumByDate(data.Mozilla, dateArr[i]));
             }
             option = {
                 title: {
                     text: ''
                 },
                 tooltip: {
-                    trigger: 'axis',
-                    formatter: function (pt) {
-                        return pt[0].name + ':' + pt[0].value;
-                    },
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['TOTAL','JAVA','kmbackground','kmcompany','kmgate','kmhttpapi','Mozilla']
                 },
                 xAxis: {
                     type: 'category',
-                    data: arr1,
+                    data: dateArr,
                     boundaryGap: false,
                     splitLine: {
                         show: false
@@ -450,23 +462,73 @@ function pushnum() {
                         show: true
                     }
                 },
-                series: [{
-                    name: '推送量',
-                    type: 'line',
-                    showSymbol: false,
-                    hoverAnimation: false,
-                    data: arr2
-                }]
+                series: [
+                    {
+                        name: 'TOTAL',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: total,
+                    },
+                    {
+                        name: 'JAVA',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: java,
+                    },
+                    {
+                        name: 'kmbackground',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: kmbackground,
+                    },
+                    {
+                        name: 'kmgate',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: kmgate,
+                    },
+                    {
+                        name: 'kmhttpapi',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: kmhttpapi,
+                    },
+                    {
+                        name: 'kmcompany',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: kmcompany,
+                    },
+                    {
+                        name: 'Mozilla',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: Mozilla,
+                    }
+                ]
             };
             myChart.setOption(option);
-
         },
-
     });
-
-
 }
-
+//根据日期获得相应的平台推送量
+function getNumByDate (flat, date)
+{
+    for (temp = 0, j = 0; j< flat.length; j++) {
+        if (date == flat[j].date) {
+            temp = flat[j].pushnum;
+            break;
+        }
+    }
+    return temp;
+}
 //推送时延
 function pushtime() {
     var myChart = echarts.init(document.getElementById('third'));

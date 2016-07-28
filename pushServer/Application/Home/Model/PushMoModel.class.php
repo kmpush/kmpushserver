@@ -15,4 +15,8 @@ class PushMoModel extends Model
     {
         return $this->where("'$time'<=date")->field('flat,sum(pushnum) as num')->group('flat')->select();
     }
+    public function getFlatNum ($time, $flat)
+    {
+        return $this->where("'$time'<= date AND flat = '$flat'")->select();
+    }
 }

@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function checkid()
     {
         $username = I('post.id');
-        $password = I('post.psw');
+        $password = md5(I('post.psw'));
         $a = new UserModel();
         if ($a->getNum($username, $password) == '') {
             echo 0;

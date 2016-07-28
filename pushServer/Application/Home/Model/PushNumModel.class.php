@@ -15,4 +15,5 @@ class PushNumModel extends Model
     {
         return $this->where("'$time'<=date")->select();
     }
+
 }

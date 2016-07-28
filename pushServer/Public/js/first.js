@@ -8,10 +8,7 @@ option = {
         text: ''
     },
     tooltip: {
-        trigger: 'axis',
-        formatter: function (pt) {
-            return pt[0].name + ':' + pt[0].value;
-        },
+        trigger: 'axis'
     },
     xAxis: {
         type: 'category',
@@ -28,12 +25,14 @@ option = {
             show: true
         }
     },
-    series: [{
-        name: '推送量',
-        type: 'line',
-        showSymbol: false,
-        hoverAnimation: false,
-        data: [],
-    }]
+    series: [
+        {
+            name: '总推送量',
+            type: 'line',
+            showSymbol: false,
+            hoverAnimation: false,
+            data: [],
+        }
+    ]
 };
 myChart.setOption(option);

@@ -18,6 +18,9 @@
     <script src="/pushServer/Public/js/china.js"></script>
     <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
     <script src="/pushServer/Public/js/jPages.js"></script>
+    <script>
+        var appUrl = '/pushServer/index.php';
+    </script>
 
 </head>
 <body>
@@ -30,7 +33,7 @@
     <br><br>
     <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送量</span>
 
-    <div class="ui Inverted divider"></div>
+    <div class="ui Inverted divider"></div><br/>
     <!--推送折线图-->
     <div id="first" style="left:10%;width: 80%;height:400px;"></div>
     <script src="/pushServer/Public/js/first.js"></script>
