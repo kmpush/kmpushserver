@@ -19,9 +19,6 @@
     <script src="/pushServer/Public/js/china.js"></script>
     <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
     <script src="/pushServer/Public/js/jPages.js"></script>
-    <script>
-        var appUrl = '/pushServer/index.php';
-    </script>
 
 </head>
 <body>
@@ -29,7 +26,7 @@
     <div style="float: right">
         <label for="from" style="font-size: 20px">开始时间</label>
         <input type="text" id="from" name="from" style="width:105px;height: 25px;font-size: 20px">
-        <button class="blue ui button" onclick="PostData()">查询</button>
+        <button class="blue ui button" onclick="return PostData()">查询</button>
     </div>
     <br><br>
     <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送量</span>

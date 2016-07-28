@@ -34,14 +34,6 @@ class GetInfoController extends Controller
         echo json_encode($data);
     }
 
-    //推送量
-    public function getPushNum()
-    {
-        $time = I('post.text');
-        $num = new PushNumModel();
-        echo json_encode($num->getNum($time));
-    }
-
     //推送时延
     public function getPushTime()
     {

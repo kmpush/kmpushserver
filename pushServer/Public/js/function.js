@@ -9,8 +9,6 @@ $(function () {
             $("#to").datepicker("option", "minDate", selectedDate);
         }
     });
-
-
     //$("#before").click(function () {
     //    $("#infotable tr:not(:first)").remove();
     //});
@@ -422,11 +420,7 @@ function pushnum() {
     var Mozilla = [];
     $.ajax({
         type: "post",
-<<<<<<< HEAD
-        url: "/pushServer/Home/GetInfo/getALLPushNum",
-=======
-        url: Home+"/GetInfo/getPushNum",
->>>>>>> 0492d49f4454102bc744a4086c6ee57337f4e72c
+        url: Home+"/GetInfo/getALLPushNum",
         async: true, //异步执行
         data: {text: a1},
         success: function (data) {
@@ -667,12 +661,25 @@ function pushmo() {
     });
 
 }
-
+//检查日期是否合法
+function checkDate()
+{
+    var a = /^(\d{4})-(\d{2})-(\d{2})$/
+    if(document.getElementById("from").value == '')
+    return true;                                   //如果用户提交日期为空显示近一个月日期
+    else if(!a.test(document.getElementById("from").value)){
+        alert("日期格式不正确!");
+        return false;
+    }
+    return true;
+}
 
 function PostData() {
-    pushnum();
-    hotnum();
-    pushtime();
-    pushmo();
-    tableInfo()
+    if (checkDate()) {
+        pushnum();
+        hotnum();
+        pushtime();
+        pushmo();
+        tableInfo()
+    }
 }
