@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/pushServer/Public/css/jPages.css">
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
 
+    <script> var Home = '/pushServer/Home';</script>
     <script src="/pushServer/Public/js/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="/pushServer/Public/js/echarts.js"></script>

@@ -1,0 +1,30 @@
+[ 2016-07-28T15:19:11+08:00 ] ::1 /pushServer/__JS_/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:__JS_
+
+[ 2016-07-28T15:19:12+08:00 ] ::1 /pushServer/__JS_/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:__JS_
+
+[ 2016-07-28T15:19:12+08:00 ] ::1 /pushServer/__JS_/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:__JS_
+
+[ 2016-07-28T15:19:12+08:00 ] ::1 /pushServer/__JS_/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:__JS_
+
+[ 2016-07-28T15:19:19+08:00 ] ::1 /pushServer/__JS_/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:__JS_
+
