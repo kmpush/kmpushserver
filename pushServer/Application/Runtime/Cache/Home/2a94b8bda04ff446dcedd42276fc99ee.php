@@ -19,9 +19,6 @@
     <script src="/pushServer/Public/js/china.js"></script>
     <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
     <script src="/pushServer/Public/js/jPages.js"></script>
-    <script>
-        var appUrl = '/pushServer/index.php';
-    </script>
 
 </head>
 <body>
@@ -81,7 +78,6 @@
         </tr>
         </thead>
         <tbody id="tb">
-
         </tbody>
     </table>
 

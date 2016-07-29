@@ -78,7 +78,6 @@
         </tr>
         </thead>
         <tbody id="tb">
-
         </tbody>
     </table>
 
