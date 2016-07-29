@@ -9,11 +9,11 @@ $(function () {
             $("#to").datepicker("option", "minDate", selectedDate);
         }
     });
-    //$("#before").click(function () {
-    //    $("#infotable tr:not(:first)").remove();
-    //});
-
-});
+})
+function companyinfo(obj) {
+    var companyid = obj.parentElement.abbr;
+    window.location.href = Home + "/CompanyInfo/getInfo?companyid=" + companyid;
+}
 
 //热点图
 function hotnum() {
@@ -227,7 +227,7 @@ function hotnum() {
     };
     $.ajax({
         type: "post",
-        url: Home+"/GetInfo/getHotPoin",
+        url: Home + "/GetInfo/getHotPoin",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -342,7 +342,7 @@ function hotnum() {
                 $("#infotable tr:not(:first)").remove();
                 $.ajax({
                     type: "post",
-                    url:Home+"/ClickInfo/clickhot",
+                    url: Home + "/ClickInfo/clickhot",
                     async: true, //异步执行
                     data: {time: a1, city: params.name},
                     success: function (msg) {
@@ -354,11 +354,13 @@ function hotnum() {
                             var companyId = str[i].companyid;
                             var pushModel = str[i].pushmodel;
                             var city = str[i].city;
-                            var info = "<tr> <td>" + pushTime + "</td> <td>" + answerTime + "</td> <td>" + timeDelay + "</td> <td>" + companyId + "</td> <td>" + pushModel + "</td> <td>" + city + "</td></tr>";
+                            var info = "<tr> <td>" + pushTime + "</td> <td>" + answerTime + "</td> <td>" + timeDelay + "</td> <td abbr=" + companyId + ">" + companyId + ' ' + "<a href='javascript:void(0)' onclick='companyinfo(this)'>详情</a></td> <td>" + pushModel + "</td> <td>" + city + "</td></tr>";
                             addtable(info);
                         }
                         $("#infotable").after('<div id="page" class="holder" style="float: right"></div><script>$(function(){$("div.holder").jPages({containerID: "tb", perPage: 10,delay: 20 });}); </script>');
-
+                        $(".companyid").click(function () {
+                            alert($(this).text());
+                        })
                     },
 
                 });
@@ -377,6 +379,7 @@ function addtable(info) {
     else
         $("#infotable tr:last").after(info);
 }
+
 //详细信息
 function tableInfo() {
     var a1 = document.getElementById('from').value;
@@ -384,7 +387,7 @@ function tableInfo() {
     $("#infotable tr:not(:first)").remove();
     $.ajax({
         type: "post",
-        url:Home+"/GetInfo/getTableInfo",
+        url: Home + "/GetInfo/getTableInfo",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -396,11 +399,13 @@ function tableInfo() {
                 var companyId = str[i].companyid;
                 var pushModel = str[i].pushmodel;
                 var city = str[i].city;
-                var info = "<tr> <td>" + pushTime + "</td> <td>" + answerTime + "</td> <td>" + timeDelay + "</td> <td>" + companyId + "</td> <td>" + pushModel + "</td> <td>" + city + "</td></tr>";
+                var info = "<tr> <td>" + pushTime + "</td> <td>" + answerTime + "</td> <td>" + timeDelay + "</td> <td abbr=" + companyId + ">" + companyId + ' ' + "<a href='javascript:void(0)' onclick='companyinfo(this)'>详情</a></td> <td>" + pushModel + "</td> <td>" + city + "</td></tr>";
                 addtable(info);
             }
             $("#infotable").after('<div id="page" class="holder" style="float: right"></div><script>$(function(){$("div.holder").jPages({containerID: "tb", perPage: 10,delay: 20 });}); </script>');
-
+            $(".companyid").click(function () {
+                alert($(this).text());
+            })
         },
 
     });
@@ -420,7 +425,7 @@ function pushnum() {
     var Mozilla = [];
     $.ajax({
         type: "post",
-        url: Home+"/GetInfo/getALLPushNum",
+        url: Home + "/GetInfo/getALLPushNum",
         async: true, //异步执行
         data: {text: a1},
         success: function (data) {
@@ -443,7 +448,7 @@ function pushnum() {
                     trigger: 'axis'
                 },
                 legend: {
-                    data:['TOTAL','JAVA','kmbackground','kmcompany','kmgate','kmhttpapi','Mozilla']
+                    data: ['TOTAL', 'JAVA', 'kmbackground', 'kmcompany', 'kmgate', 'kmhttpapi', 'Mozilla']
                 },
                 xAxis: {
                     type: 'category',
@@ -516,10 +521,10 @@ function pushnum() {
         },
     });
 }
+
 //根据日期获得相应的平台推送量
-function getNumByDate (flat, date)
-{
-    for (temp = 0, j = 0; j< flat.length; j++) {
+function getNumByDate(flat, date) {
+    for (temp = 0, j = 0; j < flat.length; j++) {
         if (date == flat[j].date) {
             temp = flat[j].pushnum;
             break;
@@ -527,13 +532,14 @@ function getNumByDate (flat, date)
     }
     return temp;
 }
+
 //推送时延
 function pushtime() {
     var myChart = echarts.init(document.getElementById('third'));
     var a1 = document.getElementById('from').value;
     $.ajax({
         type: "post",
-        url:Home+"/GetInfo/getPushTime",
+        url: Home + "/GetInfo/getPushTime",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -609,7 +615,7 @@ function pushmo() {
 
     $.ajax({
         type: "post",
-        url:Home+"/GetInfo/getPushMo",
+        url: Home + "/GetInfo/getPushMo",
         async: true, //异步执行
         data: {text: a1},
         success: function (msg) {
@@ -661,13 +667,13 @@ function pushmo() {
     });
 
 }
+
 //检查日期是否合法
-function checkDate()
-{
+function checkDate() {
     var a = /^(\d{4})-(\d{2})-(\d{2})$/
-    if(document.getElementById("from").value == '')
-    return true;                                   //如果用户提交日期为空显示近一个月日期
-    else if(!a.test(document.getElementById("from").value)){
+    if (document.getElementById("from").value == '')
+        return true;                                   //如果用户提交日期为空显示近一个月日期
+    else if (!a.test(document.getElementById("from").value)) {
         alert("日期格式不正确!");
         return false;
     }
