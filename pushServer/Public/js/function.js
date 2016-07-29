@@ -358,9 +358,7 @@ function hotnum() {
                             addtable(info);
                         }
                         $("#infotable").after('<div id="page" class="holder" style="float: right"></div><script>$(function(){$("div.holder").jPages({containerID: "tb", perPage: 10,delay: 20 });}); </script>');
-                        $(".companyid").click(function () {
-                            alert($(this).text());
-                        })
+
                     },
 
                 });
@@ -403,9 +401,6 @@ function tableInfo() {
                 addtable(info);
             }
             $("#infotable").after('<div id="page" class="holder" style="float: right"></div><script>$(function(){$("div.holder").jPages({containerID: "tb", perPage: 10,delay: 20 });}); </script>');
-            $(".companyid").click(function () {
-                alert($(this).text());
-            })
         },
 
     });
