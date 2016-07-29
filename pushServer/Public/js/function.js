@@ -9,10 +9,10 @@ $(function () {
             $("#to").datepicker("option", "minDate", selectedDate);
         }
     });
-});
+})
 function companyinfo(obj) {
     var companyid = obj.parentElement.abbr;
-    window.location.href = Home + "/CompanyInfo/getInfo?companyid="+companyid;
+    window.location.href = Home + "/CompanyInfo/getInfo?companyid=" + companyid;
 }
 
 //热点图
@@ -379,6 +379,7 @@ function addtable(info) {
     else
         $("#infotable tr:last").after(info);
 }
+
 //详细信息
 function tableInfo() {
     var a1 = document.getElementById('from').value;
@@ -520,6 +521,7 @@ function pushnum() {
         },
     });
 }
+
 //根据日期获得相应的平台推送量
 function getNumByDate(flat, date) {
     for (temp = 0, j = 0; j < flat.length; j++) {
@@ -530,6 +532,7 @@ function getNumByDate(flat, date) {
     }
     return temp;
 }
+
 //推送时延
 function pushtime() {
     var myChart = echarts.init(document.getElementById('third'));
@@ -665,11 +668,24 @@ function pushmo() {
 
 }
 
+//检查日期是否合法
+function checkDate() {
+    var a = /^(\d{4})-(\d{2})-(\d{2})$/
+    if (document.getElementById("from").value == '')
+        return true;                                   //如果用户提交日期为空显示近一个月日期
+    else if (!a.test(document.getElementById("from").value)) {
+        alert("日期格式不正确!");
+        return false;
+    }
+    return true;
+}
 
 function PostData() {
-    pushnum();
-    hotnum();
-    pushtime();
-    pushmo();
-    tableInfo()
+    if (checkDate()) {
+        pushnum();
+        hotnum();
+        pushtime();
+        pushmo();
+        tableInfo()
+    }
 }
