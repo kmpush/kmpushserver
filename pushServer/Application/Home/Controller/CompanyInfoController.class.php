@@ -12,7 +12,7 @@ use Home\Model\TblMqlogModel;
 
 class CompanyInfoController extends Controller
 {
-    //商家详细信息
+    //商家推送时延信息
     public function getInfo()
     {
         $a = new TblMqlogModel();
