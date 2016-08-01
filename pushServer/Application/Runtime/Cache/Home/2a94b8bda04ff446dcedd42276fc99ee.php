@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/pushServer/Public/css/jPages.css">
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
 
-    <script> var Home = '/pushServer/Home';</script>
+    <script> var Home = '/pushServer/index.php/Home';</script>
     <script src="/pushServer/Public/js/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="/pushServer/Public/js/echarts.js"></script>
@@ -53,7 +53,7 @@
 </div>
 <!--两个饼图-->
 <div id="a3">
-    <div id="third" style="float:left;padding-left: 5%;padding-top:2%;width: 40%;height:380px;"></div>
+    <div id="third" style="float:left;padding-left: 5%;padding-top:18px;width: 40%;height:380px;"></div>
     <script src="/pushServer/Public/js/third.js"></script>
     <br>
 
@@ -80,7 +80,6 @@
         <tbody id="tb">
         </tbody>
     </table>
-
     <div id="a5">
         <div class="ui horizontal divider">End</div>
     </div>

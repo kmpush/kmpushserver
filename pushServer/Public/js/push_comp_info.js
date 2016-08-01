@@ -1,0 +1,66 @@
+$(function(){
+    showComInfo();
+});
+//显示商家推送时延
+function showComInfo(){
+    var max = [];
+    var min = [];
+    var avg = [];
+    var date = [];
+    for (i = 0; i < data.length; i++) {
+        date.push(data[i].date);
+        max.push(data[i].max);
+        min.push(data[i].min);
+        avg.push(data[i].avg);
+    }
+    option = {
+        title: {
+            text: ''
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['平均值','最大值', '最小值' ]
+        },
+        xAxis: {
+            type: 'category',
+            data: date,
+            boundaryGap: false,
+            splitLine: {
+                show: false
+            }
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '20%'],
+            splitLine: {
+                show: true
+            }
+        },
+        series: [
+            {
+                name: '平均值',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: avg,
+            },
+            {
+                name: '最大值',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: max,
+            },
+            {
+                name: '最小值',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: min,
+            }
+        ]
+    };
+    myChart.setOption(option);
+}

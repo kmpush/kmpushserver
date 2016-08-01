@@ -14,6 +14,6 @@ class TblCompanyModel extends Model
     protected $connection = 'DB_CONFIG1';
     public function getInfo($companyCode)
     {
-        return $this->where("CompanyCode='$companyCode'")->select();
+        return $this->where("CompanyCode='$companyCode'")->field("CompanyName,CompanyCode,CompanyID,RegisterUserID,RelationName,RelationPhone,RegionCode,RelationQQ,CompanyAddress,CompanyMemo")->find();
     }
 }
