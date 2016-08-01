@@ -62,7 +62,23 @@ class GetInfoController extends Controller
     public function getTableInfo()
     {
         $time = I('post.text');
+        $page = I('post.toPage');
         $num = new AllInfoModel();
-        echo json_encode($num->getNum($time));
+        $arr = $num->getNum($time,$page);
+        $arr3 = array();
+        $arr2 = array();
+        foreach ($arr as $item) {
+            if(is_array($item)) {
+                $arr1 = array();
+                foreach ($item as $a) {
+                    array_push($arr1, $a);
+                }
+                array_push($arr3, $arr1);
+            }
+
+        }
+        $arr2['data'] = $arr3;
+        $arr2['totalItems'] = $num->getCount($time);
+        echo json_encode($arr2);
     }
 }

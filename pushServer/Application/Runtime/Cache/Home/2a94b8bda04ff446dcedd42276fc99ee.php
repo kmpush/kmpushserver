@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="/pushServer/Public/css/table.css">
     <link rel="stylesheet" href="/pushServer/Public/css/menu.css">
     <link rel="stylesheet" href="/pushServer/Public/css/button.css">
-    <link rel="stylesheet" href="/pushServer/Public/css/jPages.css">
+    <link rel="stylesheet" href="/pushServer/Public/css/bigpage.css">
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
 
-    <script> var Home = '/pushServer/Home';</script>
+    <script> var Home = '/pushServer/index.php/Home';</script>
     <script src="/pushServer/Public/js/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="/pushServer/Public/js/echarts.js"></script>
     <script src="/pushServer/Public/js/china.js"></script>
     <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
-    <script src="/pushServer/Public/js/jPages.js"></script>
+    <script src="/pushServer/Public/js/bigpage.js"></script>
 
 </head>
 <body>
@@ -31,7 +31,8 @@
     <br><br>
     <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送量</span>
 
-    <div class="ui Inverted divider"></div><br/>
+    <div class="ui Inverted divider"></div>
+    <br/>
     <!--推送折线图-->
     <div id="first" style="left:10%;width: 80%;height:400px;"></div>
     <script src="/pushServer/Public/js/first.js"></script>
@@ -77,7 +78,7 @@
             <th>所属城市</th>
         </tr>
         </thead>
-        <tbody id="tb">
+        <tbody>
         </tbody>
     </table>
     <div id="a5">

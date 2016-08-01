@@ -16,7 +16,24 @@ class ClickInfoController extends Controller
     //点击热点图
     public function clickhot()
     {
-        $a = new AllInfoModel();
-        echo json_encode($a->gethotinfo(I('post.time'), I('post.city')));
+        $time = I('post.text');
+        $page = I('post.toPage');
+        $city = I('post.city');
+        $num = new AllInfoModel();
+        $arr = $num->gethotinfo($time,$city,$page);
+        $arr3 = array();
+        $arr2 = array();
+        foreach ($arr as $item) {
+            if(is_array($item)) {
+                $arr1 = array();
+                foreach ($item as $a) {
+                    array_push($arr1, $a);
+                }
+                array_push($arr3, $arr1);
+            }
+        }
+        $arr2['data'] = $arr3;
+        $arr2['totalItems'] = $num->getCityCount($time,$city);
+        echo json_encode($arr2);
     }
 }

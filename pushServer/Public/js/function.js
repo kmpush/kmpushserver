@@ -338,29 +338,11 @@ function hotnum() {
             myChart.setOption(option);
             myChart.on('click', function (params) {
                 var a1 = document.getElementById('from').value;
-                $("#page").remove();
-                $("#infotable tr:not(:first)").remove();
-                $.ajax({
-                    type: "post",
-                    url: Home + "/ClickInfo/clickhot",
-                    async: true, //异步执行
-                    data: {time: a1, city: params.name},
-                    success: function (msg) {
-                        var str = JSON.parse(msg);
-                        for (i = 0; i < str.length; i++) {
-                            var pushTime = str[i].pushtime;
-                            var answerTime = str[i].answertime;
-                            var timeDelay = str[i].timedelay;
-                            var companyId = str[i].companyid;
-                            var pushModel = str[i].pushmodel;
-                            var city = str[i].city;
-                            var info = "<tr> <td>" + pushTime + "</td> <td>" + answerTime + "</td> <td>" + timeDelay + "</td> <td abbr=" + companyId + ">" + companyId + ' ' + "<a href='javascript:void(0)' onclick='companyinfo(this)'>详情</a></td> <td>" + pushModel + "</td> <td>" + city + "</td></tr>";
-                            addtable(info);
-                        }
-                        $("#infotable").after('<div id="page" class="holder" style="float: right"></div><script>$(function(){$("div.holder").jPages({containerID: "tb", perPage: 10,delay: 20 });}); </script>');
-
-                    },
-
+                $("#infotable").bigPage({
+                    ajaxData: {
+                        url: Home + "/ClickInfo/clickhot",
+                        params: {text: a1, city: params.name}
+                    }
                 });
                 var s = $("#a4").offset().top;
                 $("html,body").animate({scrollTop: s}, 'slow');
@@ -370,39 +352,15 @@ function hotnum() {
 
 }
 
-function addtable(info) {
-    if ($("#infotable tr").length == 1) {
-        $("#tb").html(info);
-    }
-    else
-        $("#infotable tr:last").after(info);
-}
 
 //详细信息
 function tableInfo() {
     var a1 = document.getElementById('from').value;
-    $("#page").remove();
-    $("#infotable tr:not(:first)").remove();
-    $.ajax({
-        type: "post",
-        url: Home + "/GetInfo/getTableInfo",
-        async: true, //异步执行
-        data: {text: a1},
-        success: function (msg) {
-            var str = JSON.parse(msg);
-            for (i = 0; i < str.length; i++) {
-                var pushTime = str[i].pushtime;
-                var answerTime = str[i].answertime;
-                var timeDelay = str[i].timedelay;
-                var companyId = str[i].companyid;
-                var pushModel = str[i].pushmodel;
-                var city = str[i].city;
-                var info = "<tr> <td>" + pushTime + "</td> <td>" + answerTime + "</td> <td>" + timeDelay + "</td> <td abbr=" + companyId + ">" + companyId + ' ' + "<a href='javascript:void(0)' onclick='companyinfo(this)'>详情</a></td> <td>" + pushModel + "</td> <td>" + city + "</td></tr>";
-                addtable(info);
-            }
-            $("#infotable").after('<div id="page" class="holder" style="float: right"></div><script>$(function(){$("div.holder").jPages({containerID: "tb", perPage: 10,delay: 20 });}); </script>');
-        },
-
+    $("#infotable").bigPage({
+        ajaxData: {
+            url: Home + "/GetInfo/getTableInfo",
+            params: {text: a1}
+        }
     });
 }
 
@@ -677,10 +635,10 @@ function checkDate() {
 
 function PostData() {
     if (checkDate()) {
-        pushnum();
+        //pushnum();
         hotnum();
-        pushtime();
-        pushmo();
+        //pushtime();
+        //pushmo();
         tableInfo()
     }
 }

@@ -18,7 +18,7 @@
             else {
                 $.ajax({
                     type: "post",
-                    url: "/pushServer/Home/Index/checkid",
+                    url: "/pushServer/index.php/Home/Index/checkid",
                     async: true, //异步执行
                     data: {id:a,psw:b},
                     success: function (msg) {
@@ -27,7 +27,7 @@
                            alert("用户名或密码错误！")
                        }
                         else {
-                           window.location.href = '/pushServer/Home/Index/info';
+                           window.location.href = '/pushServer/index.php/Home/Index/info';
                        }
 
                     },
