@@ -16,9 +16,8 @@ class CompanyInfoController extends Controller
     public function getInfo()
     {
         $a = new TblMqlogModel();
-        $arr = $a->getInfo(I('get.companyid'));
-        print_r($arr);
-//        $this->assign($arr);
-//        $this->display('index:company_info');
+        $data = $a->getInfo(I('get.companyid'));
+        $this->assign('data',json_encode($data));
+        $this->display('Index/comp_info');
     }
 }

@@ -635,10 +635,10 @@ function checkDate() {
 
 function PostData() {
     if (checkDate()) {
-        //pushnum();
+        pushnum();
         hotnum();
-        //pushtime();
-        //pushmo();
+        pushtime();
+        pushmo();
         tableInfo()
     }
 }
