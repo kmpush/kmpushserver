@@ -1157,3 +1157,2128 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2016-08-02T11:14:27+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T11:30:16+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date ) GROUP BY flat  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:16+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'JAVA' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmbackground' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmcompany' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'Mozilla' )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-01'<=date and '2016-07-10'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:16+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0040s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-01'<=date and '2016-07-10'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:16+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-01' and date<='2016-07-10' group by city [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:16+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:54+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 10,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:55+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 30,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:30:57+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 20,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:31:08+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'JAVA' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmbackground' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date AND flat = 'Mozilla' )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-01'<=date and '2016-07-10'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T11:31:08+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-01' and date<='2016-07-10' group by city [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:31:08+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0050s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-01'<=date and '2016-07-10'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T11:31:08+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-10'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T11:31:08+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-10'>= date ) GROUP BY flat  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:01:27+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-08-02T14:01:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( ''<=pushTime and ''>=pushTime ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( ''<=pushTime and ''>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0040s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( ''<=date and ''>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'JAVA' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmgate' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( ''<=date and ''>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( ''<= date AND ''>= date ) GROUP BY flat  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0060s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='' and date<='' group by city [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:49+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'JAVA' )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmgate' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'Mozilla' )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( ''<=date and ''>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:49+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0060s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='' and date<='' group by city [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:01:49+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( ''<= date AND ''>= date ) GROUP BY flat  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:01:49+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0040s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( ''<=date and ''>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:01:49+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( ''<=pushTime and ''>=pushTime ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( ''<=pushTime and ''>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2016-08-02T14:03:58+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date ) GROUP BY flat  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:03:58+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'JAVA' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmgate' )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmcompany' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( ''<=date and '123'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:04:02+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='' and date<='123' group by city [ RunTime:3.3932s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-02T14:04:02+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0210s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( ''<=date and '123'>=date )  [ RunTime:0.0190s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:04:03+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0270s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( ''<=pushTime and '123'>=pushTime ) LIMIT 0,10   [ RunTime:0.7160s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( ''<=pushTime and '123'>=pushTime ) LIMIT 1   [ RunTime:0.5300s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-02T14:05:35+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:05:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'JAVA' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmgate' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'kmcompany' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND ''>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( ''<=date and ''>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:05:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0050s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( ''<=date and ''>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:05:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0060s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( ''<= date AND ''>= date ) GROUP BY flat  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:05:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='' and date<='' group by city [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-02T14:05:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( ''<=pushTime and ''>=pushTime ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( ''<=pushTime and ''>=pushTime ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:06:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date ) GROUP BY flat  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:06:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date AND flat = 'JAVA' )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date AND flat = 'kmgate' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '123'<= date AND ''>= date AND flat = 'Mozilla' )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '123'<=date and ''>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:06:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0040s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '123'<=date and ''>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-08-02T14:06:41+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0040s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='123' and date<='' group by city [ RunTime:3.1752s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:06:43+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0270s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '123'<=pushTime and ''>=pushTime ) LIMIT 0,10   [ RunTime:0.6660s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '123'<=pushTime and ''>=pushTime ) LIMIT 1   [ RunTime:0.5540s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:07:24+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:09:05+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:09:12+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'JAVA' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmgate' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( ''<=date and '123'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:09:12+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='' and date<='123' group by city [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:09:12+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( ''<= date AND '123'>= date ) GROUP BY flat  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:09:12+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0050s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( ''<=date and '123'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:09:12+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( ''<=pushTime and '123'>=pushTime ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( ''<=pushTime and '123'>=pushTime ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:12:28+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:12:37+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date AND flat = 'JAVA' )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date AND flat = 'kmbackground' )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date AND flat = 'kmcompany' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date AND flat = 'Mozilla' )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-01'<=date and '2016-07-03'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:12:38+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-03'>=pushTime ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-07-03'>=pushTime ) LIMIT 1   [ RunTime:0.6240s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:12:41+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0060s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-01' and date<='2016-07-03' group by city [ RunTime:3.0102s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:12:41+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0060s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-01'<=date and '2016-07-03'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:12:41+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-07-03'>= date ) GROUP BY flat  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:15:11+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:15:33+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0060s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-01' and date<='2016-08-01' group by city [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:15:33+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date ) GROUP BY flat  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:15:33+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'JAVA' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-01'<=date and '2016-08-01'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:15:33+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:15:33+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0060s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-01'<=date and '2016-08-01'>=date )  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:16:49+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:16:55+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'JAVA' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-01'<=date and '2016-08-01'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:16:56+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-01' and date<='2016-08-01' group by city [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-08-02T14:16:56+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0050s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-01'<=date and '2016-08-01'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:16:56+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0040s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-01'<= date AND '2016-08-01'>= date ) GROUP BY flat  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:16:56+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-08-02T14:17:21+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:17:26+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date AND flat = 'JAVA' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date AND flat = 'kmbackground' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date AND flat = 'kmcompany' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date AND flat = 'Mozilla' )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-06'<=date and '2016-08-01'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:17:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0040s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-06' and date<='2016-08-01' group by city [ RunTime:2.9792s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-02T14:17:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-06'<= date AND '2016-08-01'>= date ) GROUP BY flat  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:17:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0050s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-06'<=date and '2016-08-01'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:17:29+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-06'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-06'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 1   [ RunTime:0.5740s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:17:37+08:00 ] ::1 /pushServer/index.php/Home/Index/info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:17:43+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getALLPushNum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date AND flat = 'JAVA' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date AND flat = 'kmbackground' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date AND flat = 'kmgate' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date AND flat = 'kmhttpapi' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date AND flat = 'kmcompany' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date AND flat = 'Mozilla' )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `km_push_num` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_push_num` WHERE ( '2016-07-02'<=date and '2016-08-01'>=date )  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:17:44+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-02'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-02'<=pushTime and '2016-08-01'>=pushTime ) LIMIT 1   [ RunTime:0.6550s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:17:47+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getHotPoin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_hot_poin` [ RunTime:0.0050s ]
+SQL: select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='2016-07-02' and date<='2016-08-01' group by city [ RunTime:2.9692s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-02T14:17:47+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0230s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-02'<=date and '2016-08-01'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:17:47+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushMo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_mo` [ RunTime:0.0050s ]
+SQL: SELECT `flat`,sum(pushnum) as num FROM `km_push_mo` WHERE ( '2016-07-02'<= date AND '2016-08-01'>= date ) GROUP BY flat  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:19:24+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:21:06+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:38:04+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:38:31+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:49:17+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:49:42+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:49:45+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:49:54+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:53:16+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:53:20+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:53:42+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0320s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:53:47+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T14:56:22+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:56:25+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T14:56:33+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:07:53+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0270s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0240s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:09:13+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0250s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0210s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-08-02T15:32:04+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T15:32:09+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-30' and timestampdiff(second,CreateTime,ReceiveTime)>='2555.4000' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-30' and timestampdiff(second,CreateTime,ReceiveTime)>='2555.4000' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T15:40:57+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-30' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 0,10   [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-30' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:41:34+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0110s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-22' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 0,10   [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-22' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:41:43+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-18' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-18' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:41:49+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-08' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-08' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:41:56+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-10' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 0,10   [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-10' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T15:42:01+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-11' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 0,10   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-11' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T15:42:04+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-11' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 10,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-11' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T15:44:32+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T15:44:35+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-01' and timestampdiff(second,CreateTime,ReceiveTime)>='2223.2308' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-01' and timestampdiff(second,CreateTime,ReceiveTime)>='2223.2308' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:02:14+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:02:17+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='7039' ) LIMIT 0,10   [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='7039' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:03:50+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:03:53+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:05:05+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:05:07+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-01' and timestampdiff(second,CreateTime,ReceiveTime)>='7205' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-01' and timestampdiff(second,CreateTime,ReceiveTime)>='7205' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:10:57+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:17:12+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-29' and timestampdiff(second,CreateTime,ReceiveTime)>='2396.8000' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-29' and timestampdiff(second,CreateTime,ReceiveTime)>='2396.8000' ) LIMIT 1   [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:21:19+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`MQcontent`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-05' and timestampdiff(second,CreateTime,ReceiveTime)>='1527.4615' ) LIMIT 0,10   [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-05' and timestampdiff(second,CreateTime,ReceiveTime)>='1527.4615' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:26:21+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:26:29+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-01' and timestampdiff(second,CreateTime,ReceiveTime)>='2223.2308' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-01' and timestampdiff(second,CreateTime,ReceiveTime)>='2223.2308' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:27:53+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:27:56+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:29:02+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getInfo?companyid=00116
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT companycode,convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where companycode='00116' group by convert(CreateTime,date); [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:29:05+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:29:31+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:29:33+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:29:36+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-07' and timestampdiff(second,CreateTime,ReceiveTime)>='4832.1000' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:29:44+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-06' and timestampdiff(second,CreateTime,ReceiveTime)>='2128.7000' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-06' and timestampdiff(second,CreateTime,ReceiveTime)>='2128.7000' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:29:47+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-29' and timestampdiff(second,CreateTime,ReceiveTime)>='2396.8000' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-29' and timestampdiff(second,CreateTime,ReceiveTime)>='2396.8000' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:30:04+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-27' and timestampdiff(second,CreateTime,ReceiveTime)>='2550.0000' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-27' and timestampdiff(second,CreateTime,ReceiveTime)>='2550.0000' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:30:09+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-30' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-30' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:30:25+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:30:31+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0070s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 10,10   [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:30:34+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-08-02T16:30:37+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0070s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 10,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:30:39+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0070s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-08-02T16:30:44+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0050s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 10,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:30:48+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0060s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-07-04' and timestampdiff(second,CreateTime,ReceiveTime)>='1' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
