@@ -16,11 +16,12 @@ class ClickInfoController extends Controller
     //点击热点图
     public function clickhot()
     {
-        $time = I('post.text');
+        $from = I('post.from');
+        $to = I('post.to');
         $page = I('post.toPage');
         $city = I('post.city');
         $num = new AllInfoModel();
-        $arr = $num->gethotinfo($time,$city,$page);
+        $arr = $num->gethotinfo($from,$to,$city,$page);
         $arr3 = array();
         $arr2 = array();
         foreach ($arr as $item) {
@@ -33,7 +34,7 @@ class ClickInfoController extends Controller
             }
         }
         $arr2['data'] = $arr3;
-        $arr2['totalItems'] = $num->getCityCount($time,$city);
+        $arr2['totalItems'] = $num->getCityCount($from,$to,$city);
         echo json_encode($arr2);
     }
 }

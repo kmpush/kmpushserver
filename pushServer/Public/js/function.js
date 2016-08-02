@@ -9,6 +9,13 @@ $(function () {
             $("#to").datepicker("option", "minDate", selectedDate);
         }
     });
+    $("#to").datepicker({
+        dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            $("#from").datepicker("option", "maxDate", selectedDate);
+        }
+    });
 })
 function companyinfo(obj) {
     var companyid = obj.parentElement.abbr;
@@ -212,6 +219,8 @@ function hotnum() {
     };
     var myChart = echarts.init(document.getElementById('second'));
     var a1 = document.getElementById('from').value;
+    var a2 = document.getElementById('to').value;
+
     var convertData = function (data) {
         var res = [];
         for (var i = 0; i < data.length; i++) {
@@ -229,7 +238,7 @@ function hotnum() {
         type: "post",
         url: Home + "/GetInfo/getHotPoin",
         async: true, //异步执行
-        data: {text: a1},
+        data: {from: a1,to:a2},
         success: function (msg) {
             var str = JSON.parse(msg);
             for (i = 0; i < str.length; i++) {
@@ -338,10 +347,12 @@ function hotnum() {
             myChart.setOption(option);
             myChart.on('click', function (params) {
                 var a1 = document.getElementById('from').value;
+                var a2 = document.getElementById('to').value;
+
                 $("#infotable").bigPage({
                     ajaxData: {
                         url: Home + "/ClickInfo/clickhot",
-                        params: {text: a1, city: params.name}
+                        params: {from: a1,to:a2, city: params.name}
                     }
                 });
                 var s = $("#a4").offset().top;
@@ -356,10 +367,12 @@ function hotnum() {
 //详细信息
 function tableInfo() {
     var a1 = document.getElementById('from').value;
+    var a2 = document.getElementById('to').value;
+
     $("#infotable").bigPage({
         ajaxData: {
             url: Home + "/GetInfo/getTableInfo",
-            params: {text: a1}
+            params: {from: a1,to:a2}
         }
     });
 }
@@ -368,6 +381,7 @@ function tableInfo() {
 function pushnum() {
     var myChart = echarts.init(document.getElementById('first'));
     var a1 = document.getElementById('from').value;
+    var a2 = document.getElementById('to').value;
     var dateArr = [];
     var total = [];
     var java = [];
@@ -380,7 +394,7 @@ function pushnum() {
         type: "post",
         url: Home + "/GetInfo/getALLPushNum",
         async: true, //异步执行
-        data: {text: a1},
+        data: {from: a1,to:a2},
         success: function (data) {
             var data = JSON.parse(data);
             for (i = 0; i < data.total.length; i++) {
@@ -490,11 +504,13 @@ function getNumByDate(flat, date) {
 function pushtime() {
     var myChart = echarts.init(document.getElementById('third'));
     var a1 = document.getElementById('from').value;
+    var a2 = document.getElementById('to').value;
+
     $.ajax({
         type: "post",
         url: Home + "/GetInfo/getPushTime",
         async: true, //异步执行
-        data: {text: a1},
+        data: {from: a1,to:a2},
         success: function (msg) {
             var str = JSON.parse(msg);
             for (i = 0; i < str.length; i++) {
@@ -563,6 +579,8 @@ function pushtime() {
 function pushmo() {
     var myChart = echarts.init(document.getElementById('forth'));
     var a1 = document.getElementById('from').value;
+    var a2 = document.getElementById('to').value;
+
     var arr1 = [];
     var arr2 = [];
 
@@ -570,7 +588,7 @@ function pushmo() {
         type: "post",
         url: Home + "/GetInfo/getPushMo",
         async: true, //异步执行
-        data: {text: a1},
+        data: {from: a1,to:a2},
         success: function (msg) {
             var str = JSON.parse(msg);
             for (i = 0; i < str.length; i++) {
@@ -624,9 +642,9 @@ function pushmo() {
 //检查日期是否合法
 function checkDate() {
     var a = /^(\d{4})-(\d{2})-(\d{2})$/
-    if (document.getElementById("from").value == '')
+    if (document.getElementById("from").value == ''||document.getElementById("to").value == '')
         return true;                                   //如果用户提交日期为空显示近一个月日期
-    else if (!a.test(document.getElementById("from").value)) {
+    else if (!a.test(document.getElementById("from").value)&&!a.test(document.getElementById("to").value)) {
         alert("日期格式不正确!");
         return false;
     }

@@ -11,12 +11,12 @@ use Think\Model;
 
 class PushMoModel extends Model
 {
-    public function getNum($time)
+    public function getNum($from,$to)
     {
-        return $this->where("'$time'<=date")->field('flat,sum(pushnum) as num')->group('flat')->select();
+        return $this->where("'$from'<= date AND '$to'>= date")->field('flat,sum(pushnum) as num')->group('flat')->select();
     }
-    public function getFlatNum ($time, $flat)
+    public function getFlatNum ($from,$to, $flat)
     {
-        return $this->where("'$time'<= date AND flat = '$flat'")->select();
+        return $this->where("'$from'<= date AND '$to'>= date AND flat = '$flat'")->select();
     }
 }

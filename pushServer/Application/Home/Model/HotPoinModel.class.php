@@ -11,8 +11,8 @@ use Think\Model;
 
 class HotPoinModel extends Model
 {
-    public function gethotNum($time)
+    public function gethotNum($from,$to)
     {
-        return $this->query("select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='$time' group by city");
+        return $this->query("select city,sum(hotNum) as hotNum from (SELECT city,sum(hotNum) as hotNum,date FROM km_hot_poin group by city,date) a where date>='$from' and date<='$to' group by city");
     }
 }

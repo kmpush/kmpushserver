@@ -13,26 +13,26 @@ use Think\Model;
 class AllInfoModel extends Model
 {
     //全部信息
-    public function getNum($time, $page)
+    public function getNum($from,$to, $page)
     {
-        return $this->where("'$time'<=pushTime")->page($page, 10)->select();
+        return $this->where("'$from'<=pushTime and '$to'>=pushTime")->page($page, 10)->select();
     }
 
     //点击热点图触发的结果
-    public function gethotinfo($time, $city, $page)
+    public function gethotinfo($from,$to, $city, $page)
     {
-        return $this->where("'$time'<=pushTime AND city='$city'")->page($page, 10)->select();
+        return $this->where("'$from'<=pushTime AND '$to'>=pushTime AND city='$city'")->page($page, 10)->select();
     }
 
     //总条数
-    public function getCount($time)
+    public function getCount($from,$to)
     {
-        return $this->where("'$time'<=pushTime")->count();
+        return $this->where("'$from'<=pushTime and '$to'>=pushTime")->count();
     }
 
     //城市详细数据总条数
-    public function getCityCount($time, $city)
+    public function getCityCount($from,$to, $city)
     {
-        return $this->where("'$time'<=pushTime AND city='$city'")->count();
+        return $this->where("'$from'<=pushTime AND '$to'>=pushTime AND city='$city'")->count();
     }
 }

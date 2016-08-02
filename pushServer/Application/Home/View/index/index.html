@@ -26,6 +26,8 @@
     <div style="float: right">
         <label for="from" style="font-size: 20px">开始时间</label>
         <input type="text" id="from" name="from" style="width:105px;height: 25px;font-size: 20px">
+        <label for="from" style="font-size: 20px">结束时间</label>
+        <input type="text" id="to" name="to" style="width:105px;height: 25px;font-size: 20px">
         <button class="blue ui button" onclick="return PostData()">查询</button>
     </div>
     <br><br>

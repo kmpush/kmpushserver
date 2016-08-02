@@ -21,50 +21,55 @@ class GetInfoController extends Controller
     public function getALLPushNum()
     {
         $data = array();
-        $time = I('post.text');
+        $from = I('post.from');
+        $to = I('post.to');
         $num  = new PushMoModel();
-        $data['java']         = $num->getFlatNum($time, 'JAVA');
-        $data['kmbackground'] = $num->getFlatNum($time, 'kmbackground');
-        $data['kmgate']       = $num->getFlatNum($time, 'kmgate');
-        $data['kmhttpapi']    = $num->getFlatNum($time, 'kmhttpapi');
-        $data['kmcompany']    = $num->getFlatNum($time, 'kmcompany');
-        $data['Mozilla']      = $num->getFlatNum($time, 'Mozilla');
+        $data['java']         = $num->getFlatNum($from,$to, 'JAVA');
+        $data['kmbackground'] = $num->getFlatNum($from,$to, 'kmbackground');
+        $data['kmgate']       = $num->getFlatNum($from,$to, 'kmgate');
+        $data['kmhttpapi']    = $num->getFlatNum($from,$to, 'kmhttpapi');
+        $data['kmcompany']    = $num->getFlatNum($from,$to, 'kmcompany');
+        $data['Mozilla']      = $num->getFlatNum($from,$to, 'Mozilla');
         $allnum = new PushNumModel();
-        $data['total'] = $allnum->getNum($time);
+        $data['total'] = $allnum->getNum($from,$to);
         echo json_encode($data);
     }
 
     //推送时延
     public function getPushTime()
     {
-        $time = I('post.text');
+        $from = I('post.from');
+        $to = I('post.to');
         $num = new PushTimeModel();
-        echo json_encode($num->getNum($time));
+        echo json_encode($num->getNum($from,$to));
     }
 
     //推送平台
     public function getPushMo()
     {
-        $time = I('post.text');
+        $from = I('post.from');
+        $to = I('post.to');
         $num = new PushMoModel();
-        echo json_encode($num->getNum($time));
+        echo json_encode($num->getNum($from,$to));
     }
 
     //热点图
     public function getHotPoin()
     {
-        $time = I('post.text');
+        $from = I('post.from');
+        $to = I('post.to');
         $num = new HotPoinModel();
-        echo json_encode($num->gethotNum($time));
+        echo json_encode($num->gethotNum($from,$to));
     }
 
     //详细信息表
     public function getTableInfo()
     {
-        $time = I('post.text');
+        $from = I('post.from');
+        $to = I('post.to');
         $page = I('post.toPage');
         $num = new AllInfoModel();
-        $arr = $num->getNum($time,$page);
+        $arr = $num->getNum($from,$to,$page);
         $arr3 = array();
         $arr2 = array();
         foreach ($arr as $item) {
@@ -78,7 +83,7 @@ class GetInfoController extends Controller
 
         }
         $arr2['data'] = $arr3;
-        $arr2['totalItems'] = $num->getCount($time);
+        $arr2['totalItems'] = $num->getCount($from,$to);
         echo json_encode($arr2);
     }
 }

@@ -11,9 +11,9 @@ use Think\Model;
 
 class PushNumModel extends Model
 {
-    public function getNum($time)
+    public function getNum($from,$to)
     {
-        return $this->where("'$time'<=date")->select();
+        return $this->where("'$from'<=date and '$to'>=date")->select();
     }
 
 }
