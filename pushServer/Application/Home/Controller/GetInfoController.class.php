@@ -80,7 +80,6 @@ class GetInfoController extends Controller
                 }
                 array_push($arr3, $arr1);
             }
-
         }
         $arr2['data'] = $arr3;
         $arr2['totalItems'] = $num->getCount($from,$to);

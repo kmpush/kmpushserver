@@ -238,7 +238,7 @@ function hotnum() {
         type: "post",
         url: Home + "/GetInfo/getHotPoin",
         async: true, //异步执行
-        data: {from: a1,to:a2},
+        data: {from: a1, to: a2},
         success: function (msg) {
             var str = JSON.parse(msg);
             for (i = 0; i < str.length; i++) {
@@ -352,7 +352,7 @@ function hotnum() {
                 $("#infotable").bigPage({
                     ajaxData: {
                         url: Home + "/ClickInfo/clickhot",
-                        params: {from: a1,to:a2, city: params.name}
+                        params: {from: a1, to: a2, city: params.name}
                     }
                 });
                 var s = $("#a4").offset().top;
@@ -372,7 +372,7 @@ function tableInfo() {
     $("#infotable").bigPage({
         ajaxData: {
             url: Home + "/GetInfo/getTableInfo",
-            params: {from: a1,to:a2}
+            params: {from: a1, to: a2}
         }
     });
 }
@@ -394,7 +394,7 @@ function pushnum() {
         type: "post",
         url: Home + "/GetInfo/getALLPushNum",
         async: true, //异步执行
-        data: {from: a1,to:a2},
+        data: {from: a1, to: a2},
         success: function (data) {
             var data = JSON.parse(data);
             for (i = 0; i < data.total.length; i++) {
@@ -485,6 +485,7 @@ function pushnum() {
                 ]
             };
             myChart.setOption(option);
+
         },
     });
 }
@@ -510,7 +511,7 @@ function pushtime() {
         type: "post",
         url: Home + "/GetInfo/getPushTime",
         async: true, //异步执行
-        data: {from: a1,to:a2},
+        data: {from: a1, to: a2},
         success: function (msg) {
             var str = JSON.parse(msg);
             for (i = 0; i < str.length; i++) {
@@ -570,9 +571,6 @@ function pushtime() {
 
     });
 
-    //myChart.on('click', function (params) {
-    //    console.log(params.name);
-    //});
 }
 
 //推送平台
@@ -588,7 +586,7 @@ function pushmo() {
         type: "post",
         url: Home + "/GetInfo/getPushMo",
         async: true, //异步执行
-        data: {from: a1,to:a2},
+        data: {from: a1, to: a2},
         success: function (msg) {
             var str = JSON.parse(msg);
             for (i = 0; i < str.length; i++) {
@@ -642,13 +640,12 @@ function pushmo() {
 //检查日期是否合法
 function checkDate() {
     var a = /^(\d{4})-(\d{2})-(\d{2})$/
-    if (document.getElementById("from").value == ''||document.getElementById("to").value == '')
-        return true;                                   //如果用户提交日期为空显示近一个月日期
-    else if (!a.test(document.getElementById("from").value)&&!a.test(document.getElementById("to").value)) {
+    if (!a.test(document.getElementById("from").value) || !a.test(document.getElementById("to").value)) {
         alert("日期格式不正确!");
         return false;
+    } else {
+        return true;
     }
-    return true;
 }
 
 //推送量页面

@@ -63,4 +63,12 @@ function showComInfo(){
         ]
     };
     myChart.setOption(option);
+    myChart.on('click', function (params) {
+        $("#comtable").bigPage({
+            ajaxData: {
+                url: Home + "/CompanyInfo/getMoreInfo",
+                params: {companyCode:$("#companyid").text(),time:params.name,num:params.value}
+            }
+        });
+    });
 }
