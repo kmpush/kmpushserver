@@ -3,44 +3,66 @@ html, body {
     height: 100%;
     /*text-align: center;*/
 }
-
+.head_menu {
+    position:absolute;
+    left:16.4%;
+    background-color:white;
+    width:83.4%;
+    z-index:2;
+}
+#left_menu {
+    position:fixed;
+    top:0;
+    background:lightsteelblue;
+    height:800px;
+    z-index:3;
+}
+.left_div {
+    position: absolute;
+    left: 0%;
+    top: 50px;
+    width: 20%;
+    height: auto;
+}
+.right_content {
+    position: absolute;
+    left: 20%;
+    top: 50px;
+    width: 78%;
+    height: auto;
+}
 #a1 {
     position: absolute;
-    left: 10%;
     top: 25px;
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
 #a2 {
     position: absolute;
-    left: 10%;
     top: 500px;
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
 #a3text {
     position: absolute;
-    left: 10%;
     top: 1005px;
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
 #a3 {
     position: absolute;
-    left: 10%;
     top: 1050px;
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
 #a4 {
     position: absolute;
-    left: 10%;
     top: 1470px;
-    width: 80%;
+    width: 100%;
 }
 
 #a5 {

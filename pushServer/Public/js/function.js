@@ -651,12 +651,23 @@ function checkDate() {
     return true;
 }
 
-function PostData() {
+//推送量页面
+function PostNumData()
+{
+    if (checkDate()) {
+        pushnum();
+        hotnum();
+        pushmo();
+        tableInfo()
+    }
+}
+//推时延页面
+function PostTimeDelayData()
+{
     if (checkDate()) {
         pushnum();
         hotnum();
         pushtime();
-        pushmo();
         tableInfo()
     }
 }

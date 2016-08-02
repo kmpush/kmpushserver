@@ -27,4 +27,9 @@ class IndexController extends Controller
     {
         $this->display('index');
     }
+
+    public function time_delay_info()
+    {
+        $this->display('time_delay_info');
+    }
 }
