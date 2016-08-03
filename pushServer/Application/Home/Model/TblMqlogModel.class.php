@@ -19,7 +19,7 @@ class TblMqlogModel extends Model
     }
     //单独商家超过平均值OR最大值OR最小值推送详情
     public function getMoreInfo($companyCode,$time,$num,$page){
-        return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->field("CreateTime,ReceiveTime,timestampdiff(second,CreateTime,ReceiveTime) as date,companycode,SourceSystem")->page($page,10)->select();
+        return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->field("CreateTime,ReceiveTime,timestampdiff(second,CreateTime,ReceiveTime) as date,SourceSystem")->page($page,10)->select();
     }
     public function getCount($companyCode,$time,$num){
         return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->count();

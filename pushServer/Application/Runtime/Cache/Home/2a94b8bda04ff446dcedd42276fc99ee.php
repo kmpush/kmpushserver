@@ -19,6 +19,7 @@
     <script src="/pushServer/Public/js/china.js"></script>
     <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
     <script src="/pushServer/Public/js/bigpage.js"></script>
+    <script src="/pushServer/Public/js/tablesort.js"></script>
 
 </head>
 <body>
@@ -69,7 +70,7 @@
     <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送详细记录</span>
 
     <div class="ui Inverted divider"></div>
-    <table class="ui selectable  celled table" id="infotable">
+    <table class="ui sortable  celled table" id="infotable">
         <thead>
         <tr>
             <th>推送时间</th>
@@ -83,6 +84,8 @@
         <tbody>
         </tbody>
     </table>
+    <script>$('table').tablesort();</script>
+
     <div id="a5">
         <div class="ui horizontal divider">End</div>
     </div>

@@ -55,7 +55,7 @@
     background: #2185D0;
     text-align: inherit;
     /*color: rgba(0, 0, 0, 0.87);*/
-    color: #EFEFEF;
+    color: #FFFFFF;
     padding: 0.92857143em 0.78571429em;
     vertical-align: inherit;
     font-style: none;
@@ -945,7 +945,13 @@
     cursor: pointer;
     white-space: nowrap;
     border-left: 1px solid rgba(34, 36, 38, 0.15);
-    color: rgba(0, 0, 0, 0.87);
+    /*color: rgba(0, 0, 0, 0.87);*/
+}
+
+.ui.sortable.table tbody tr:hover,
+.ui.table tbody tr td.sortable:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: rgba(0, 0, 0, 0.95) !important;
 }
 
 .ui.sortable.table thead th:first-child {
@@ -974,11 +980,13 @@
 }
 
 .ui.sortable.table thead th.ascending:after {
-    content: '\f0d8';
+    /*content: '\f0d8';*/
+    content: '↓';
 }
 
 .ui.sortable.table thead th.descending:after {
-    content: '\f0d7';
+    /*content: '\f0d7';*/
+    content: '↑';
 }
 
 /* Hover */
@@ -988,14 +996,14 @@
 }
 
 .ui.sortable.table thead th:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.8);
+    background: #0099d4;
+    color: #FFFFFF;
 }
 
 /* Sorted */
 .ui.sortable.table thead th.sorted {
-    background: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.95);
+    /*background: rgba(0, 0, 0, 0.05);*/
+    color: #FFFFFF;
 }
 
 .ui.sortable.table thead th.sorted:after {
@@ -1004,8 +1012,8 @@
 
 /* Sorted Hover */
 .ui.sortable.table thead th.sorted:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.95);
+    /*background: rgba(0, 0, 0, 0.05);*/
+    /*color: rgba(0, 0, 0, 0.95);*/
 }
 
 /* Inverted */
