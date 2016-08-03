@@ -24,8 +24,4 @@ class TblMqlogModel extends Model
     public function getCount($companyCode,$time,$num){
         return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->count();
     }
-    //所有商家延迟信息最大值、最小值、平均值折线图数据
-    public function getTimeDelayInfo($from, $to){
-        return $this->query("SELECT convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where CompanyCode!='' group by convert(CreateTime,date);");
-    }
 }

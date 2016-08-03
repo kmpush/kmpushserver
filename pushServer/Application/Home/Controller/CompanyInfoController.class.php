@@ -9,6 +9,7 @@ namespace Home\Controller;
 
 use Think\Controller;
 use Home\Model\TblMqlogModel;
+use Home\Model\CompanyPushtimeModel;
 
 class CompanyInfoController extends Controller
 {
@@ -45,5 +46,19 @@ class CompanyInfoController extends Controller
         $arr2['data'] = $arr3;
         $arr2['totalItems'] = $num->getCount($id,$time,$n);
         echo json_encode($arr2);
+    }
+
+    //时延信息折线图
+    public function getDelayInfo()
+    {
+        $from = I('post.from');
+        $to = I('post.to');
+        $delay = new CompanyPushtimeModel();
+        if($msg = $delay->getTimeDelayInfo($from, $to)) {
+            echo json_encode($msg);
+        }
+        else{
+            $this->error("can't get data");
+        }
     }
 }

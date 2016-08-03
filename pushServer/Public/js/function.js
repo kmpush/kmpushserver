@@ -490,6 +490,82 @@ function pushnum() {
     });
 }
 
+//时延信息折线图
+function pushTimeDelay() {
+    var myChart = echarts.init(document.getElementById('first'));
+    var a1 = document.getElementById('from').value;
+    var a2 = document.getElementById('to').value;
+    var date = [];
+    var avg = [];
+    var max = [];
+    var min = [];
+    $.ajax({
+        type: "post",
+        url: Home + "/CompanyInfo/getDelayInfo",
+        async: true, //异步执行
+        data: {from: a1, to: a2},
+        success: function (msg) {
+            var data = JSON.parse(msg);
+            for (i = 0; i < data.length; i++) {
+                date.push(data[i].date);
+                avg.push(data[i].avg);
+                max.push(data[i].max);
+                min.push(data[i].min);
+            }
+            option = {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['平均值', '最大值', '最小值']
+                },
+                xAxis: {
+                    type: 'category',
+                    data: date,
+                    boundaryGap: false,
+                    splitLine: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    boundaryGap: [0, '20%'],
+                    splitLine: {
+                        show: true
+                    }
+                },
+                series: [
+                    {
+                        name: '平均值',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: avg,
+                    },
+                    {
+                        name: '最大值',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: max,
+                    },
+                    {
+                        name: '最小值',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: min,
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        },
+    });
+}
+
 //根据日期获得相应的平台推送量
 function getNumByDate(flat, date) {
     for (temp = 0, j = 0; j < flat.length; j++) {
@@ -662,7 +738,7 @@ function PostNumData()
 function PostTimeDelayData()
 {
     if (checkDate()) {
-        pushnum();
+        pushTimeDelay();
         hotnum();
         pushtime();
         tableInfo()

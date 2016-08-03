@@ -27,7 +27,7 @@ option = {
     },
     series: [
         {
-            name: '总推送量',
+            name: '',
             type: 'line',
             showSymbol: false,
             hoverAnimation: false,

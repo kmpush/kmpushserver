@@ -31,26 +31,21 @@
 <!--左菜单栏-->
 <div class="left_div">
     <div class="ui vertical menu" id="left_menu">
+    <!--<div class="ui vertical pointing menu" id="left_menu">-->
         <div class="item">
             <br/><br/>
-
-            <div class="menu">
-                <a class="item active" href="/pushServer/index.php/Home/Index/info"> 推送量 </a>
-                <a class="item" href="javascript:go_here('a1')"> 平台推送量对比 </a>
-                <a class="item" href="javascript:go_here('a2')"> 推送量城市分布 </a>
-                <a class="item" href="javascript:go_here('a3')"> 推送平台占比 </a>
-                <a class="item" href="javascript:go_here('a4')"> 推送详细记录 </a>
-            </div>
+            <a class="item active" href="/pushServer/index.php/Home/Index/info"> <strong>推送量</strong> </a>
+            <a class="item" href="javascript:go_here('a1')"> 平台推送量对比 </a>
+            <a class="item" href="javascript:go_here('a2')"> 推送量城市分布 </a>
+            <a class="item" href="javascript:go_here('a3')"> 推送平台占比 </a>
+            <a class="item" href="javascript:go_here('a4')"> 推送详细记录 </a>
         </div>
         <div class="item">
-            <!--<div class="header"> 推送时延 </div>-->
-            <div class="menu">
-                <a class="item active" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送时延 </a>
-                <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 日推送时延 </a>
-                <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送时延城市分布 </a>
-                <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送时延分布 </a>
-                <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送详细记录 </a>
-            </div>
+            <a class="item active" href="/pushServer/index.php/Home/Index/time_delay_info"> <strong>推送时延</strong> </a>
+            <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 日推送时延 </a>
+            <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送时延城市分布 </a>
+            <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送时延分布 </a>
+            <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送详细记录 </a>
         </div>
     </div>
 </div>
@@ -61,7 +56,7 @@
             <input type="text" id="from" name="from" style="width:105px;height: 25px;font-size: 20px">
             <label for="from" style="font-size: 20px">结束时间</label>
             <input type="text" id="to" name="to" style="width:105px;height: 25px;font-size: 20px">
-            <button class="blue ui button" onclick="return PostNumData()">查询</button>
+            <button class="blue ui button" onclick="PostNumData()">查询</button>
         </div>
         <br><br>
         <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送量</span>
