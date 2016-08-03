@@ -7,6 +7,7 @@
  */
 namespace Home\Controller;
 
+use Home\Model\DelayHotpoinModel;
 use Think\Controller;
 use Home\Model\PushNumModel;
 use Home\Model\PushTimeModel;
@@ -84,5 +85,13 @@ class GetInfoController extends Controller
         $arr2['data'] = $arr3;
         $arr2['totalItems'] = $num->getCount($from,$to);
         echo json_encode($arr2);
+    }
+    //时延热点图
+    public function getTimeHot(){
+        $from = I('post.from');
+        $to = I('post.to');
+        $a = new DelayHotpoinModel();
+        $arr = $a->getTimeNum($from,$to);
+        echo json_encode($arr);
     }
 }

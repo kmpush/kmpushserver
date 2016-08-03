@@ -24,8 +24,8 @@
 </head>
 <body>
 <!--顶部导航菜单-->
-<div class="ui menu head_menu" >
-    <div class="header item" >K米平台服务质量监测系统 </div>
+<div class="ui menu head_menu">
+    <div class="header item">K米平台服务质量监测系统</div>
     <a class="item" href="/pushServer/index.php/Home/Index/info">推送量 </a>
     <a class="item active">推送时延 </a>
 </div>
@@ -34,11 +34,22 @@
     <div class="ui vertical menu" id="left_menu">
         <div class="item">
             <br/><br/>
+<<<<<<< HEAD
             <a class="item active" href="/pushServer/index.php/Home/Index/info" > <strong>推送量</strong> </a>
             <a class="item" href="/pushServer/index.php/Home/Index/info"> 平台推送量对比 </a>
             <a class="item" href="/pushServer/index.php/Home/Index/info"> 推送量城市分布 </a>
             <a class="item" href="/pushServer/index.php/Home/Index/info"> 推送平台占比 </a>
             <a class="item" href="/pushServer/index.php/Home/Index/info"> 推送详细记录 </a>
+=======
+
+            <div class="menu">
+                <a class="item active" href="/pushServer/index.php/Home/Index/info"> 推送量 </a>
+                <a class="item" href="/pushServer/index.php/Home/Index/info"> 平台推送量对比 </a>
+                <a class="item" href="/pushServer/index.php/Home/Index/info"> 推送量城市分布 </a>
+                <a class="item" href="/pushServer/index.php/Home/Index/info"> 推送平台占比 </a>
+                <a class="item" href="/pushServer/index.php/Home/Index/info"> 推送详细记录 </a>
+            </div>
+>>>>>>> 73772b175a9c22a9384d38e57a5789b46ef9e695
         </div>
         <div class="item">
             <a class="item active" href="/pushServer/index.php/Home/Index/time_delay_info"> <strong>推送时延</strong> </a>
@@ -69,7 +80,7 @@
     </div>
     <!--推送时延热点图-->
     <div id="a2">
-        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">平均推送时延热点图</span>
+        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送时延热点图</span>
 
         <div class="ui Inverted divider"></div>
 

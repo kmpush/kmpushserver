@@ -68,7 +68,7 @@
         <script src="/pushServer/Public/js/first.js"></script>
     </div>
     <div id="a2">
-        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">平均推送时延热点图</span>
+        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送量热点图</span>
 
         <div class="ui Inverted divider"></div>
         <!--推送量热点图-->
