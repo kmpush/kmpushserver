@@ -104,7 +104,6 @@
         </table>
         <script>
             $('table').tablesort();
-
             $('thead th.number').data('sortBy', function (th, td, tablesort) {
                 return parseInt(td.text(), 10);
             });

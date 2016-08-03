@@ -42,14 +42,19 @@
         <tr>
             <th>推送时间</th>
             <th>网关相应时间</th>
-            <th>时延（秒）</th>
+            <th class="number">时延（秒）</th>
             <th>推送平台</th>
         </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-    <script>$('table').tablesort();</script>
+    <script>
+        $('table').tablesort();
+        $('thead th.number').data('sortBy', function (th, td, tablesort) {
+            return parseInt(td.text(), 10);
+        });
+    </script>
 </div>
 </body>
 </html>
