@@ -7784,3 +7784,56 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2016-08-03T17:26:53+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getDelayInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_company_pushtime` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `km_company_pushtime` WHERE ( '2016-07-01'<=date and '2016-08-16'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-03T17:26:54+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTimeHot
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_delay_hotpoin` [ RunTime:0.0040s ]
+SQL: SELECT `city`,sum(time) as time FROM `km_delay_hotpoin` WHERE ( '2016-07-01'<=date and '2016-08-16'>=date ) GROUP BY city  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-03T17:26:54+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getTableInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_all_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-08-16'>=pushTime ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_all_info` WHERE ( '2016-07-01'<=pushTime and '2016-08-16'>=pushTime ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-03T17:26:54+08:00 ] ::1 /pushServer/index.php/Home/GetInfo/getPushTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_push_time` [ RunTime:0.0050s ]
+SQL: SELECT sum(from0to1) as a,sum(from1to5) as b,sum(from5to10) as c,sum(from10to30) as d,sum(from30to60) as e,sum(than60) as f,sum(noanswer) as g FROM `km_push_time` WHERE ( '2016-07-01'<=date and '2016-08-16'>=date )  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
