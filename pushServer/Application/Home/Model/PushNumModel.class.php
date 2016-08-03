@@ -15,5 +15,4 @@ class PushNumModel extends Model
     {
         return $this->where("'$from'<=date and '$to'>=date")->select();
     }
-
 }

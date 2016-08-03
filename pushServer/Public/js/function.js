@@ -648,7 +648,7 @@ function checkDate() {
     }
 }
 
-//推送量页面
+//推送量页面调用，显示推送量相关信息
 function PostNumData()
 {
     if (checkDate()) {
@@ -658,7 +658,7 @@ function PostNumData()
         tableInfo()
     }
 }
-//推时延页面
+//推时延页面调用，显示推送时延信息
 function PostTimeDelayData()
 {
     if (checkDate()) {

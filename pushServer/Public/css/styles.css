@@ -31,6 +31,13 @@ html, body {
     width: 78%;
     height: auto;
 }
+#main_div {
+    position: absolute;
+    left: 10%;
+    top: 25px;
+    width: 80%;
+    height: auto;
+}
 #a1 {
     position: absolute;
     top: 25px;

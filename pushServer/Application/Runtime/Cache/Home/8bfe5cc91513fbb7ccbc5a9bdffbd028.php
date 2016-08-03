@@ -44,10 +44,10 @@
             <!--<div class="header"> 推送时延 </div>-->
             <div class="menu">
                 <a class="item active" href="/pushServer/index.php/Home/Index/time_delay_info"> 推送时延 </a>
-                <a class="item" href="#a1"> 日推送时延 </a>
-                <a class="item" href="#a2"> 推送时延城市分布 </a>
-                <a class="item" href="#a3"> 推送时延分布 </a>
-                <a class="item" href="#a4"> 推送详细记录 </a>
+                <a class="item" href="javascript:go_here('a1')"> 日推送时延 </a>
+                <a class="item" href="javascript:go_here('a2')"> 推送时延城市分布 </a>
+                <a class="item" href="javascript:go_here('a3')"> 推送时延分布 </a>
+                <a class="item" href="javascript:go_here('a4')"> 推送详细记录 </a>
             </div>
         </div>
     </div>
@@ -111,8 +111,7 @@
         </div>
     </div>
 </div>
-
 </div>
-
 </body>
 </html>
+<script src="/pushServer/Public/js/animate.js"></script>
