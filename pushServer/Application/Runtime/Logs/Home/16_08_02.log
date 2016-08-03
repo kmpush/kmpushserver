@@ -12604,3 +12604,31 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2016-08-02T16:34:01+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0080s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-22' and timestampdiff(second,CreateTime,ReceiveTime)>='6816.7143' ) LIMIT 0,10   [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-22' and timestampdiff(second,CreateTime,ReceiveTime)>='6816.7143' ) LIMIT 1   [ RunTime:0.0050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-08-02T16:34:10+08:00 ] ::1 /pushServer/index.php/Home/CompanyInfo/getMoreInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `km_tbl_mqlog` [ RunTime:0.0090s ]
+SQL: SELECT `CreateTime`,`ReceiveTime`,timestampdiff(second,`CreateTime`,ReceiveTime) as date,`companycode`,`SourceSystem` FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-22' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 0,10   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `km_tbl_mqlog` WHERE ( companycode='00116' and convert(CreateTime,date)='2016-06-22' and timestampdiff(second,CreateTime,ReceiveTime)>='0' ) LIMIT 1   [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

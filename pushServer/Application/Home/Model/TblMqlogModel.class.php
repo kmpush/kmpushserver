@@ -19,9 +19,13 @@ class TblMqlogModel extends Model
     }
     //单独商家超过平均值OR最大值OR最小值推送详情
     public function getMoreInfo($companyCode,$time,$num,$page){
-        return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->field("CreateTime,ReceiveTime,timestampdiff(second,CreateTime,ReceiveTime) as date,companycode,SourceSystem")->page($page,10)->select();
+        return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->field("CreateTime,ReceiveTime,timestampdiff(second,CreateTime,ReceiveTime) as date,SourceSystem")->page($page,10)->select();
     }
     public function getCount($companyCode,$time,$num){
         return $this->where("companycode='$companyCode' and convert(CreateTime,date)='$time' and timestampdiff(second,CreateTime,ReceiveTime)>='$num'")->count();
+    }
+    //所有商家延迟信息最大值、最小值、平均值折线图数据
+    public function getTimeDelayInfo($from, $to){
+        return $this->query("SELECT convert(CreateTime,date) as date,max(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as max,min(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as min,avg(TIMESTAMPDIFF(SECOND,CreateTime,ReceiveTime)) as avg FROM kmgate.km_tbl_mqlog where CompanyCode!='' group by convert(CreateTime,date);");
     }
 }
