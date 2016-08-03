@@ -19,6 +19,21 @@ html, body {
     width: 80%;
     height: auto;
 }
+#a11 {
+    position: absolute;
+    left: 10%;
+    top: 25px;
+    width: 80%;
+    height: auto;
+}
+
+#a21 {
+    position: absolute;
+    left: 10%;
+    top: 500px;
+    width: 80%;
+    height: auto;
+}
 
 #a3text {
     position: absolute;
