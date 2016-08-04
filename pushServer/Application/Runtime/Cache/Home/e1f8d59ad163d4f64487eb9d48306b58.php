@@ -78,6 +78,7 @@
     <div id="a2">
         <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送详细记录</span>
 
+<<<<<<< HEAD
         <div class="ui Inverted divider"></div>
         <table class="ui sortable  celled table" id="comtable">
             <thead>
@@ -93,6 +94,27 @@
         </table>
         <script>$('table').tablesort();</script>
     </div>
+=======
+    <div class="ui Inverted divider"></div>
+    <table class="ui sortable  celled table" id="comtable">
+        <thead>
+        <tr>
+            <th>推送时间</th>
+            <th>网关相应时间</th>
+            <th class="number">时延（秒）</th>
+            <th>推送平台</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        $('table').tablesort();
+        $('thead th.number').data('sortBy', function (th, td, tablesort) {
+            return parseInt(td.text(), 10);
+        });
+    </script>
+>>>>>>> 5f1288acf57141c863095c4bd8ccb936137a0602
 </div>
 </body>
 </html>

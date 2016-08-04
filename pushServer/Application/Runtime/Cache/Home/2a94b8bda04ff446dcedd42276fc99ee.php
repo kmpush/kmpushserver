@@ -26,6 +26,11 @@
 <!--左菜单栏-->
 <div class="left_div">
     <div class="ui vertical menu" id="left_menu">
+<<<<<<< HEAD
+=======
+        <!--<div class="ui vertical pointing menu" id="left_menu">-->
+        <div class="item">
+>>>>>>> 5f1288acf57141c863095c4bd8ccb936137a0602
             <br/><br/>
             <a class="item active" href="/pushServer/index.php/Home/Index/info"> <strong>推送量</strong> </a>
             <a class="item" href="javascript:go_here('a1')"> 平台推送量对比 </a>
@@ -96,7 +101,7 @@
             <tr>
                 <th>推送时间</th>
                 <th>网关相应时间</th>
-                <th>时延（秒）</th>
+                <th class="number">时延（秒）</th>
                 <th>商家编码</th>
                 <th>推送平台</th>
                 <th>所属城市</th>
@@ -105,7 +110,12 @@
             <tbody>
             </tbody>
         </table>
-        <script>$('table').tablesort();</script>
+        <script>
+            $('table').tablesort();
+            $('thead th.number').data('sortBy', function (th, td, tablesort) {
+                return parseInt(td.text(), 10);
+            });
+        </script>
 
         <div id="a5">
             <div class="ui horizontal divider">End</div>

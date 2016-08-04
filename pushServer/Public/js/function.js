@@ -362,7 +362,7 @@ function hotnum() {
                 var s = $("#a4").offset().top;
                 $("html,body").animate({scrollTop: s}, 'slow');
             });
-        },
+        }
     });
 
 }
@@ -703,7 +703,7 @@ function delayhotnum() {
                 var s = $("#a4").offset().top;
                 $("html,body").animate({scrollTop: s}, 'slow');
             });
-        },
+        }
     });
 
 }
@@ -783,55 +783,55 @@ function pushnum() {
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: total,
+                        data: total
                     },
                     {
                         name: 'JAVA',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: java,
+                        data: java
                     },
                     {
                         name: 'kmbackground',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: kmbackground,
+                        data: kmbackground
                     },
                     {
                         name: 'kmgate',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: kmgate,
+                        data: kmgate
                     },
                     {
                         name: 'kmhttpapi',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: kmhttpapi,
+                        data: kmhttpapi
                     },
                     {
                         name: 'kmcompany',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: kmcompany,
+                        data: kmcompany
                     },
                     {
                         name: 'Mozilla',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: Mozilla,
+                        data: Mozilla
                     }
                 ]
             };
             myChart.setOption(option);
 
-        },
+        }
     });
 }
 
@@ -888,21 +888,21 @@ function pushTimeDelay() {
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: avg,
+                        data: avg
                     },
                     {
                         name: '最大值',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: max,
+                        data: max
                     },
                     {
                         name: '最小值',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: min,
+                        data: min
                     }
                 ]
             };
@@ -989,7 +989,7 @@ function pushtime() {
             };
             myChart.setOption(option);
 
-        },
+        }
 
     });
 
@@ -1054,7 +1054,7 @@ function pushmo() {
             };
             myChart.setOption(option);
 
-        },
+        }
 
     });
 
