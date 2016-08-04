@@ -25,9 +25,9 @@ html, body {
 }
 .right_content {
     position: absolute;
-    left: 20%;
-    top: 10px;
-    width: 78%;
+    left: 18.5%;
+    top: 0px;
+    width: 80%;
     height: auto;
 }
 #a1 {
@@ -39,7 +39,7 @@ html, body {
 
 #a2 {
     position: absolute;
-    top: 650px;
+    top: 660px;
     width: 100%;
     height: auto;
 }
