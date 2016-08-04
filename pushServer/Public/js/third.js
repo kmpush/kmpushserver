@@ -14,7 +14,8 @@ option = {
     },
     legend: {
         orient: 'vertical',
-        left: 'left',
+        top: '33%',
+        left: '10%',
         data: ['1']
     },
     series: [

@@ -966,7 +966,8 @@ function pushtime() {
                 },
                 legend: {
                     orient: 'vertical',
-                    left: 'left',
+                    top: '33%',
+                    left: '10%',
                     data: ['时延<=1', '1<时延<=5', '5<时延<=10', '10<时延<=30', '30<时延<=60', '时延>60', '未应答']
                 },
                 series: [
@@ -1030,7 +1031,8 @@ function pushmo() {
                 },
                 legend: {
                     orient: 'vertical',
-                    left: 'left',
+                    top: '33%',
+                    left: '10%',
                     data: arr2
                 },
                 series: [

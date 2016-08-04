@@ -5,15 +5,14 @@ html, body {
 }
 .head_menu {
     position:absolute;
-    left:17%;
-    background-color:white;
-    width:82%;
+    /*left:17%;*/
+    /*width:82%;*/
     z-index:2;
 }
 #left_menu {
     position:fixed;
     top:0;
-    background:rgba(0, 0, 0, 0.05);
+    background:#2185D0;
     height:800px;
     z-index:3;
 }
@@ -27,20 +26,20 @@ html, body {
 .right_content {
     position: absolute;
     left: 20%;
-    top: 50px;
+    top: 10px;
     width: 78%;
     height: auto;
 }
 #a1 {
     position: absolute;
-    top: 25px;
+    top: 180px;
     width: 100%;
     height: auto;
 }
 
 #a2 {
     position: absolute;
-    top: 500px;
+    top: 650px;
     width: 100%;
     height: auto;
 }
@@ -62,21 +61,21 @@ html, body {
 
 #a3text {
     position: absolute;
-    top: 1005px;
+    top: 1155px;
     width: 100%;
     height: auto;
 }
 
 #a3 {
     position: absolute;
-    top: 1050px;
+    top: 1170px;
     width: 100%;
     height: auto;
 }
 
 #a4 {
     position: absolute;
-    top: 1470px;
+    top: 1630px;
     width: 100%;
 }
 
