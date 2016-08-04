@@ -117,3 +117,11 @@
 </body>
 </html>
 <script src="/pushServer/Public/js/animate.js"></script>
+<script>
+    //填充2个时间输入框的默认值
+    var date = new Date().DateAdd('m', -1);
+    var olddate = date.Format('yyyy-MM-dd');
+    var nowdate = new Date().Format('yyyy-MM-dd');
+    $("#from").val(olddate);
+    $("#to").val(nowdate);
+</script>

@@ -42,23 +42,26 @@ function showComInfo(){
             {
                 name: '平均值',
                 type: 'line',
+                symbolSize:10,
                 showSymbol: false,
                 hoverAnimation: false,
-                data: avg,
+                data: avg
             },
             {
                 name: '最大值',
+                symbolSize:10,
                 type: 'line',
                 showSymbol: false,
                 hoverAnimation: false,
-                data: max,
+                data: max
             },
             {
                 name: '最小值',
                 type: 'line',
+                symbolSize:10,
                 showSymbol: false,
                 hoverAnimation: false,
-                data: min,
+                data: min
             }
         ]
     };

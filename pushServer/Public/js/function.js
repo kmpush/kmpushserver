@@ -1,6 +1,7 @@
 /**
  * Created by User on 2016/7/6.
  */
+
 $(function () {
 
     //2个时间控件
@@ -315,7 +316,7 @@ function hotnum() {
                         }
                     },
                     {
-                        name: 'Top 10',
+                        name: 'Top 8',
                         type: 'effectScatter',
                         coordinateSystem: 'geo',
                         data: convertData(data.sort(function (a, b) {
@@ -637,7 +638,7 @@ function delayhotnum() {
                         coordinateSystem: 'geo',
                         data: convertData(data),
                         symbolSize: function (val) {
-                            return val[2] / 10000000;
+                            return val[2] / 1000000;
                         },
                         label: {
                             normal: {
@@ -656,14 +657,14 @@ function delayhotnum() {
                         }
                     },
                     {
-                        name: 'Top 10',
+                        name: 'Top 8',
                         type: 'effectScatter',
                         coordinateSystem: 'geo',
                         data: convertData(data.sort(function (a, b) {
                             return b.value - a.value;
                         }).slice(0, 11)),
                         symbolSize: function (val) {
-                            return val[2] / 10000000;
+                            return val[2] / 1000000;
                         },
                         showEffectOn: 'render',
                         rippleEffect: {
@@ -1070,8 +1071,7 @@ function checkDate() {
 }
 
 //推送量页面调用，显示推送量相关信息
-function PostNumData()
-{
+function PostNumData() {
     if (checkDate()) {
         pushnum();
         hotnum();
@@ -1080,12 +1080,52 @@ function PostNumData()
     }
 }
 //推时延页面调用，显示推送时延信息
-function PostTimeDelayData()
-{
+function PostTimeDelayData() {
     if (checkDate()) {
         pushTimeDelay();
         delayhotnum();
         pushtime();
         tableInfo()
+    }
+}
+//时间格式化
+Date.prototype.Format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1,                 //月份
+        "d+": this.getDate(),                    //日
+        "h+": this.getHours(),                   //小时
+        "m+": this.getMinutes(),                 //分
+        "s+": this.getSeconds(),                 //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds()             //毫秒
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+//时间计算
+Date.prototype.DateAdd = function (strInterval, Number) {
+    var dtTmp = this;
+    switch (strInterval) {
+        case 's' :
+            return new Date(Date.parse(dtTmp) + (1000 * Number));
+        case 'n' :
+            return new Date(Date.parse(dtTmp) + (60000 * Number));
+        case 'h' :
+            return new Date(Date.parse(dtTmp) + (3600000 * Number));
+        case 'd' :
+            return new Date(Date.parse(dtTmp) + (86400000 * Number));
+        case 'w' :
+            return new Date(Date.parse(dtTmp) + ((86400000 * 7) * Number));
+        case 'q' :
+            return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number * 3, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+        case 'm' :
+            return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+        case 'y' :
+            return new Date((dtTmp.getFullYear() + Number), dtTmp.getMonth(), dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
     }
 }

@@ -31,21 +31,21 @@ option = {
             type: 'line',
             showSymbol: false,
             hoverAnimation: false,
-            data: [],
+            data: []
         },
         {
             name: '最大值',
             type: 'line',
             showSymbol: false,
             hoverAnimation: false,
-            data: [],
+            data: []
         },
         {
             name: '最小值',
             type: 'line',
             showSymbol: false,
             hoverAnimation: false,
-            data: [],
+            data: []
         }
     ]
 };
