@@ -32,4 +32,9 @@ class IndexController extends Controller
     {
         $this->display('time_delay_info');
     }
+
+    public function company_info()
+    {
+        $this->display('comp_info');
+    }
 }

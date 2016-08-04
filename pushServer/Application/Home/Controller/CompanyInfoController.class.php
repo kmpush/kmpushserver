@@ -23,6 +23,13 @@ class CompanyInfoController extends Controller
         $this->display('Index/comp_info');
     }
 
+    //点击查询返回指定商家和时间段
+    public function getTimeInfo(){
+        $a = new TblMqlogModel();
+        $data = $a->getTimeInfo(I('post.companyid'),I('post.from'),I('post.to'));
+        echo json_encode($data);
+    }
+
     //商家推送详细信息
     public function getMoreInfo()
     {

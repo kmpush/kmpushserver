@@ -1,8 +1,10 @@
-$(function(){
-    showComInfo();
+$(function () {
+    if(data) {
+        showComInfo();
+    }
 });
 //显示商家推送时延
-function showComInfo(){
+function showComInfo() {
     var max = [];
     var min = [];
     var avg = [];
@@ -21,7 +23,7 @@ function showComInfo(){
             trigger: 'axis'
         },
         legend: {
-            data: ['平均值','最大值', '最小值' ]
+            data: ['平均值', '最大值', '最小值']
         },
         xAxis: {
             type: 'category',
@@ -42,14 +44,14 @@ function showComInfo(){
             {
                 name: '平均值',
                 type: 'line',
-                symbolSize:10,
+                symbolSize: 10,
                 showSymbol: false,
                 hoverAnimation: false,
                 data: avg
             },
             {
                 name: '最大值',
-                symbolSize:10,
+                symbolSize: 10,
                 type: 'line',
                 showSymbol: false,
                 hoverAnimation: false,
@@ -58,7 +60,7 @@ function showComInfo(){
             {
                 name: '最小值',
                 type: 'line',
-                symbolSize:10,
+                symbolSize: 10,
                 showSymbol: false,
                 hoverAnimation: false,
                 data: min
@@ -70,7 +72,7 @@ function showComInfo(){
         $("#comtable").bigPage({
             ajaxData: {
                 url: Home + "/CompanyInfo/getMoreInfo",
-                params: {companyCode:$("#companyid").text(),time:params.name,num:params.value}
+                params: {companyCode: $("#companyid").text(), time: params.name, num: params.value}
             }
         });
     });
