@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>商家推送时延</title>
+    <title>K米平台服务质量监测系统</title>
     <link rel="stylesheet" href="__CSS__/menu.css">
     <link rel="stylesheet" href="__CSS__/button.css">
     <link rel="stylesheet" href="__CSS__/divider.css">
@@ -30,7 +30,7 @@
 <!--左菜单栏-->
 <div class="left_div">
     <div class="ui vertical menu" id="left_menu">
-        <br/><br/>
+        <br><br>
         <a class="item active" href="__Home__/Index/info"> <strong>推送量</strong> </a>
         <a class="item" href="__Home__/Index/info"> 平台推送量对比 </a>
         <a class="item" href="__Home__/Index/info"> 推送量城市分布 </a>
@@ -50,18 +50,15 @@
 </div>
 <div class="right_content">
     <!--顶部导航菜单-->
-    <br/>
-
-    <div id="header"><span
-            style="border-bottom:2px solid #2D96E9;font-size: 2.5em;font-family:KaiTi_GB2312; font-weight:bold">K米平台服务质量监测系统</span>
+    <div style="background:url('__CSS__/image/bluesky.jpg') no-repeat center;background-size:100%">
+        <br><div id="header"><span style="padding:20px;border-bottom:2px solid #2D96E9;font-size: 2.5em;font-family:KaiTi_GB2312; font-weight:bold">K米平台服务质量监测系统</span></div><br>
+        <div class="ui tabular menu " style="padding-left:30px">
+            <a class="item" href="__Home__/Index/info"><strong>推送量</strong> </a>
+            <a class="item" href="__Home__/Index/time_delay_info"><strong>推送时延</strong></a>
+            <a class="item active" >商家详情 </a>
+        </div>
     </div>
-    <br/>
 
-    <div class="ui tabular menu ">
-        <a class="item" href="__Home__/Index/info">推送量 </a>
-        <a class="item" href="__Home__/Index/time_delay_info">推送时延</a>
-        <a class="item active">商家详情 </a>
-    </div>
     <div id="a1">
         <div style="float: right">
             <label for="company_code" style="font-size: 20px">商家编码</label>
@@ -73,12 +70,11 @@
             <button class="blue ui button" onclick="PostCompanyData()">查询</button>
         </div>
         <br>
-
         <p id="companyid" style="display: none">{$companyid}</p><br>
         <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">商家推送时延</span>
 
         <div class="ui Inverted divider"></div>
-        <br/>
+        <br>
         <!--推送折线图-->
         <div id="push_figure" style="left:10%;width: 80%;height:400px;"></div>
         <script src="__JS__/comp_info.js"></script>
@@ -109,6 +105,7 @@
             <div class="ui horizontal divider">End</div>
         </div>
     </div>
+
 </div>
 </body>
 </html>
