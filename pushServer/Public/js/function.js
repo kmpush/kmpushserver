@@ -1,6 +1,7 @@
 /**
  * Created by User on 2016/7/6.
  */
+
 $(function () {
 
     //2个时间控件
@@ -315,7 +316,7 @@ function hotnum() {
                         }
                     },
                     {
-                        name: 'Top 10',
+                        name: 'Top 8',
                         type: 'effectScatter',
                         coordinateSystem: 'geo',
                         data: convertData(data.sort(function (a, b) {
@@ -637,7 +638,7 @@ function delayhotnum() {
                         coordinateSystem: 'geo',
                         data: convertData(data),
                         symbolSize: function (val) {
-                            return val[2] / 10000000;
+                            return val[2] / 1000000;
                         },
                         label: {
                             normal: {
@@ -656,14 +657,14 @@ function delayhotnum() {
                         }
                     },
                     {
-                        name: 'Top 10',
+                        name: 'Top 8',
                         type: 'effectScatter',
                         coordinateSystem: 'geo',
                         data: convertData(data.sort(function (a, b) {
                             return b.value - a.value;
                         }).slice(0, 11)),
                         symbolSize: function (val) {
-                            return val[2] / 10000000;
+                            return val[2] / 1000000;
                         },
                         showEffectOn: 'render',
                         rippleEffect: {
@@ -1072,8 +1073,7 @@ function checkDate() {
 }
 
 //推送量页面调用，显示推送量相关信息
-function PostNumData()
-{
+function PostNumData() {
     if (checkDate()) {
         pushnum();
         hotnum();
@@ -1082,12 +1082,145 @@ function PostNumData()
     }
 }
 //推时延页面调用，显示推送时延信息
-function PostTimeDelayData()
-{
+function PostTimeDelayData() {
     if (checkDate()) {
         pushTimeDelay();
         delayhotnum();
         pushtime();
         tableInfo()
+    }
+}
+//商家详情‘查询’点击事件
+function PostCompanyData() {
+    if (checkDate()) {
+        var a1 = $('#from').val();
+        var a2 = $('#to').val();
+        var companyid = $('#company_code').val();
+        if (companyid == '') {
+            alert("请输入商家编码！")
+        }
+        else {
+            $.ajax({
+                type: "post",
+                url: Home + "/CompanyInfo/getTimeInfo",
+                async: true, //异步执行
+                data: {from: a1, to: a2, companyid: companyid},
+                success: function (msg) {
+                    var data = JSON.parse(msg);
+                    var max = [];
+                    var min = [];
+                    var avg = [];
+                    var date = [];
+                    for (i = 0; i < data.length; i++) {
+                        date.push(data[i].date);
+                        max.push(data[i].max);
+                        min.push(data[i].min);
+                        avg.push(data[i].avg);
+                    }
+                    option = {
+                        title: {
+                            text: ''
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['平均值', '最大值', '最小值']
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: date,
+                            boundaryGap: false,
+                            splitLine: {
+                                show: false
+                            }
+                        },
+                        yAxis: {
+                            type: 'value',
+                            boundaryGap: [0, '20%'],
+                            splitLine: {
+                                show: true
+                            }
+                        },
+                        series: [
+                            {
+                                name: '平均值',
+                                type: 'line',
+                                symbolSize: 10,
+                                showSymbol: false,
+                                hoverAnimation: false,
+                                data: avg
+                            },
+                            {
+                                name: '最大值',
+                                symbolSize: 10,
+                                type: 'line',
+                                showSymbol: false,
+                                hoverAnimation: false,
+                                data: max
+                            },
+                            {
+                                name: '最小值',
+                                type: 'line',
+                                symbolSize: 10,
+                                showSymbol: false,
+                                hoverAnimation: false,
+                                data: min
+                            }
+                        ]
+                    };
+                    myChart.setOption(option);
+                    myChart.on('click', function (params) {
+                        $("#comtable").bigPage({
+                            ajaxData: {
+                                url: Home + "/CompanyInfo/getMoreInfo",
+                                params: {companyCode: companyid, time: params.name, num: params.value}
+                            }
+                        });
+                    });
+                }
+            })
+        }
+    }
+}
+//时间格式化
+Date.prototype.Format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1,                 //月份
+        "d+": this.getDate(),                    //日
+        "h+": this.getHours(),                   //小时
+        "m+": this.getMinutes(),                 //分
+        "s+": this.getSeconds(),                 //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds()             //毫秒
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+//时间计算
+Date.prototype.DateAdd = function (strInterval, Number) {
+    var dtTmp = this;
+    switch (strInterval) {
+        case 's' :
+            return new Date(Date.parse(dtTmp) + (1000 * Number));
+        case 'n' :
+            return new Date(Date.parse(dtTmp) + (60000 * Number));
+        case 'h' :
+            return new Date(Date.parse(dtTmp) + (3600000 * Number));
+        case 'd' :
+            return new Date(Date.parse(dtTmp) + (86400000 * Number));
+        case 'w' :
+            return new Date(Date.parse(dtTmp) + ((86400000 * 7) * Number));
+        case 'q' :
+            return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number * 3, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+        case 'm' :
+            return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+        case 'y' :
+            return new Date((dtTmp.getFullYear() + Number), dtTmp.getMonth(), dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
     }
 }

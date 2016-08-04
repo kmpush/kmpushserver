@@ -25,22 +25,22 @@
 <!--左菜单栏-->
 <div class="left_div">
     <div class="ui vertical menu" id="left_menu">
-            <br/><br/>
-            <a class="item active" href="__Home__/Index/info" > <strong>推送量</strong> </a>
-            <a class="item" href="__Home__/Index/info"> 平台推送量对比 </a>
-            <a class="item" href="__Home__/Index/info"> 推送量城市分布 </a>
-            <a class="item" href="__Home__/Index/info"> 推送平台占比 </a>
-            <a class="item" href="__Home__/Index/info"> 推送详细记录 </a>
-        
-            <a class="item active" href="__Home__/Index/time_delay_info"> <strong>推送时延</strong> </a>
-            <a class="item" href="javascript:go_here('a1')"> 日推送时延 </a>
-            <a class="item" href="javascript:go_here('a2')"> 平均推送时延城市分布 </a>
-            <a class="item" href="javascript:go_here('a3')"> 推送时延分布 </a>
-            <a class="item" href="javascript:go_here('a4')"> 推送详细记录 </a>
+        <br/><br/>
+        <a class="item active" href="__Home__/Index/info"> <strong>推送量</strong> </a>
+        <a class="item" href="__Home__/Index/info"> 平台推送量对比 </a>
+        <a class="item" href="__Home__/Index/info"> 推送量城市分布 </a>
+        <a class="item" href="__Home__/Index/info"> 推送平台占比 </a>
+        <a class="item" href="__Home__/Index/info"> 推送详细记录 </a>
 
-            <a class="item active" href="__Home__/Index/company_info"> <strong>商家详情</strong> </a>
-            <a class="item" href="__Home__/Index/company_info"> 商家推送时延 </a>
-            <a class="item" href="__Home__/Index/company_info"> 商家推送详细记录 </a>
+        <a class="item active" href="__Home__/Index/time_delay_info"> <strong>推送时延</strong> </a>
+        <a class="item" href="javascript:go_here('a1')"> 日推送时延 </a>
+        <a class="item" href="javascript:go_here('a2')"> 平均推送时延城市分布 </a>
+        <a class="item" href="javascript:go_here('a3')"> 推送时延分布 </a>
+        <a class="item" href="javascript:go_here('a4')"> 推送详细记录 </a>
+
+        <a class="item active" href="__Home__/Index/company_info"> <strong>商家详情</strong> </a>
+        <a class="item" href="__Home__/Index/company_info"> 商家推送时延 </a>
+        <a class="item" href="__Home__/Index/company_info"> 商家推送详细记录 </a>
     </div>
 </div>
 <div class="right_content">
@@ -52,6 +52,7 @@
             <a class="item active" >推送时延</a>
             <a class="item" href="__Home__/Index/company_info"><strong>商家详情</strong> </a>
         </div>
+
     </div>
 
     <div id="a1">
@@ -73,7 +74,7 @@
     </div>
     <!--推送时延热点图-->
     <div id="a2">
-        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送时延热点图</span>
+        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">平均推送时延热点图</span>
 
         <div class="ui Inverted divider"></div>
 
@@ -123,3 +124,11 @@
 </body>
 </html>
 <script src="__JS__/animate.js"></script>
+<script>
+    //填充2个时间输入框的默认值
+    var date = new Date().DateAdd('m', -1);
+    var olddate = date.Format('yyyy-MM-dd');
+    var nowdate = new Date().Format('yyyy-MM-dd');
+    $("#from").val(olddate);
+    $("#to").val(nowdate);
+</script>

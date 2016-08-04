@@ -13,6 +13,6 @@ class DelayHotpoinModel extends Model
 {
     public function getTimeNum($from,$to)
     {
-        return $this->where("'$from'<=date and '$to'>=date")->field("city,sum(time) as time")->group('city')->select();
+        return $this->where("'$from'<=date and '$to'>=date")->field("city,avg(time) as time")->group('city')->select();
     }
 }
