@@ -29,8 +29,8 @@ return array(
     ),
 
     'TMPL_PARSE_STRING'=>array(
-        '__CSS__' => '/pushServer/Public/css',
-        '__JS__' => '/pushServer/Public/js',
-        '__Home__'=>'/pushServer/index.php/Home'
+        '__CSS__' => '/Public/css',
+        '__JS__' => '/Public/js',
+        '__Home__'=>'/Home'
     )
 );
