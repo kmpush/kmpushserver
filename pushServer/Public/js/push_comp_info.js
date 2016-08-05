@@ -5,6 +5,10 @@ $(function () {
 });
 //显示商家推送时延
 function showComInfo() {
+    $('#a2').css('display','inline');
+    $('#hidden').css('display','inline');
+    var myChart = echarts.init(document.getElementById('push_figure'));
+
     var max = [];
     var min = [];
     var avg = [];

@@ -1100,6 +1100,9 @@ function PostCompanyData() {
             alert("请输入商家编码！")
         }
         else {
+            $('#a2').css('display','inline');
+            $('#hidden').css('display','inline');
+            var myChart = echarts.init(document.getElementById('push_figure'));
             $.ajax({
                 type: "post",
                 url: Home + "/CompanyInfo/getTimeInfo",

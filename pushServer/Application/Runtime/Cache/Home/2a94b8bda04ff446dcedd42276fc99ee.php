@@ -115,9 +115,6 @@
             });
         </script>
 
-        <div id="a5">
-            <div class="ui horizontal divider">End</div>
-        </div>
     </div>
 </div>
 </body>
@@ -130,4 +127,12 @@
     var nowdate = new Date().Format('yyyy-MM-dd');
     $("#from").val(olddate);
     $("#to").val(nowdate);
+
+    //图表数据载入
+    if (checkDate()) {
+        pushnum();
+        hotnum();
+        pushmo();
+        tableInfo()
+    }
 </script>

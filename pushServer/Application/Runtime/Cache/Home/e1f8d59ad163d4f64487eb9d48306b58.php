@@ -19,12 +19,11 @@
     <script src="/pushServer/Public/js/tablesort.js"></script>
     <script src="/pushServer/Public/js/function.js" type="text/javascript"></script>
     <script>
-        if('<?php echo ($data); ?>'!='') {
+        if ('<?php echo ($data); ?>' != '') {
             var data = JSON.parse('<?php echo ($data); ?>');
         }
         else var data = 0
     </script>
-    <script type="text/javascript" src="/pushServer/Public/js/push_comp_info.js"></script>
 </head>
 <body>
 <!--左菜单栏-->
@@ -51,11 +50,17 @@
 <div class="right_content">
     <!--顶部导航菜单-->
     <div style="background:url('/pushServer/Public/css/image/bluesky.jpg') no-repeat center;background-size:100%">
-        <br><div id="header"><span style="padding:20px;border-bottom:2px solid #2D96E9;font-size: 2.5em;font-family:KaiTi_GB2312; font-weight:bold">K米平台服务质量监测系统</span></div><br>
+        <br>
+
+        <div id="header"><span
+                style="padding:20px;border-bottom:2px solid #2D96E9;font-size: 2.5em;font-family:KaiTi_GB2312; font-weight:bold">K米平台服务质量监测系统</span>
+        </div>
+        <br>
+
         <div class="ui tabular menu " style="padding-left:30px">
             <a class="item" href="/pushServer/index.php/Home/Index/info"><strong>推送量</strong> </a>
             <a class="item" href="/pushServer/index.php/Home/Index/time_delay_info"><strong>推送时延</strong></a>
-            <a class="item active" >商家详情 </a>
+            <a class="item active">商家详情 </a>
         </div>
     </div>
 
@@ -70,16 +75,18 @@
             <button class="blue ui button" onclick="PostCompanyData()">查询</button>
         </div>
         <br>
-        <p id="companyid" style="display: none"><?php echo ($companyid); ?></p><br>
-        <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">商家推送时延</span>
 
-        <div class="ui Inverted divider"></div>
-        <br>
-        <!--推送折线图-->
-        <div id="push_figure" style="left:10%;width: 80%;height:400px;"></div>
-        <script src="/pushServer/Public/js/comp_info.js"></script>
+        <div id="hidden" style="display: none">
+            <p id="companyid" style="display: none"><?php echo ($companyid); ?></p><br>
+            <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">商家推送时延</span>
+
+            <div class="ui Inverted divider"></div>
+            <br>
+            <!--推送折线图-->
+            <div id="push_figure" style="left:10%;width: 80%;height:400px;"></div>
+        </div>
     </div>
-    <div id="a2">
+    <div id="a2" style="display: none">
         <span style="border-bottom:2px solid #2D96E9;font-size: 20px;font-weight:bold">推送详细记录</span>
 
         <div class="ui Inverted divider"></div>
@@ -101,15 +108,12 @@
                 return parseInt(td.text(), 10);
             });
         </script>
-        <div id="a5">
-            <div class="ui horizontal divider">End</div>
-        </div>
     </div>
-
 </div>
 </body>
 </html>
 <script src="/pushServer/Public/js/animate.js"></script>
+<script type="text/javascript" src="/pushServer/Public/js/push_comp_info.js"></script>
 <script>
     //填充2个时间输入框的默认值
     var date = new Date().DateAdd('m', -1);
