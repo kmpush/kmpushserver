@@ -8,6 +8,10 @@
     <script src="__JS__/jquery.min.js"></script>
 
     <script>
+        document.onkeydown = function(e){
+            if((e||event).keyCode==13)
+                login();
+        };
         function login() {
             var a = document.getElementById('userID').value;
             var b = document.getElementById('psw').value;
@@ -42,7 +46,7 @@
 <div id="slick-login" >
     <label>username</label><input type="text" id="userID" class="placeholder" placeholder="username">
     <label>password</label><input type="password" id="psw" class="placeholder" placeholder="password">
-    <button onclick="login()">登录</button>
+    <button onclick="login()" >登录</button>
 </div>
 </body>
 
